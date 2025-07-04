@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>图片转PDF文件</h1>
+        
+        <div class="drop-area" id="dropArea">
+            <p>将图片文件拖拽到此处</p>
+            <p>或</p>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+        
+        <img id="imagePreview" alt="Image preview">
+        
+        <button id="convertBtn" class="btn" disabled>Convert to PDF</button>
+        <a id="downloadLink" class="btn">Download PDF</a>
+    </div>
+
+    <!--js PDF-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

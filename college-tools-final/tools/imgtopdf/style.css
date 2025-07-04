@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.drop-area {
+    border: 2px dashed #3498db;
+    border-radius: 8px;
+    padding: 40px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: all 0.3s;
+}
+
+.drop-area:hover, .drop-area.active {
+    background-color: #f8f9fa;
+    border-color: #2ecc71;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 20px 0;
+    display: none;
+}
+
+.btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+#downloadLink {
+    display: none;
+}
