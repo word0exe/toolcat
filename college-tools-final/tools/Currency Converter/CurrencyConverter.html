@@ -6,8 +6,10 @@
   <title>汇率转换器</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    /* 引入中文字体（思源黑体）以美化界面 */
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
 
+    /* 设置页面背景动画和基础样式 */
     body {
       font-family: 'Noto Sans SC', sans-serif;
       background: linear-gradient(135deg, #d9c9ff, #f3e6ff);
@@ -16,12 +18,14 @@
       padding: 40px;
     }
 
+    /* 渐变背景动画 */
     @keyframes gradientMove {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
 
+    /* 主容器样式，包含转换器和图表 */
     .container {
       display: flex;
       align-items: flex-start;
@@ -30,6 +34,7 @@
       flex-wrap: wrap;
     }
 
+    /* 汇率转换器样式 */
     .converter {
       background: white;
       padding: 40px;
@@ -43,6 +48,7 @@
       margin-bottom: 25px;
     }
 
+    /* 输入框、选择框和按钮通用样式 */
     .converter input,
     .converter select,
     .converter button {
@@ -52,6 +58,7 @@
       font-size: 16px;
     }
 
+    /* 转换按钮样式与动画 */
     .converter button {
       background-color: #7d29cc;
       color: white;
@@ -74,12 +81,14 @@
       transform: scale(1.02);
     }
 
+    /* 结果文字样式 */
     .result {
       text-align: center;
       font-weight: bold;
       font-size: 18px;
     }
 
+    /* 显示国旗与选择框对齐 */
     .flag-row {
       display: flex;
       align-items: center;
@@ -87,6 +96,7 @@
       margin-bottom: 10px;
     }
 
+    /* 国旗图片样式 */
     .flag {
       width: 28px;
       height: 20px;
@@ -94,11 +104,13 @@
       border: 1px solid #ccc;
     }
 
+    /* 图表容器样式 */
     .chart-container {
       min-width: 480px;
       flex: 1;
     }
 
+    /* 页脚样式 */
     .footer {
       text-align: center;
       margin-top: 60px;
@@ -116,8 +128,10 @@
   <div class="container">
     <div class="converter">
       <h2>货币转换器</h2>
+      <!-- 输入金额 -->
       <input type="number" id="amount" placeholder="金额" min="0" />
 
+      <!-- 带国旗的货币选择框 -->
       <div class="flag-row">
         <img id="fromFlag" class="flag" src="" alt="flag">
         <select id="fromCurrency"></select>
@@ -127,9 +141,13 @@
         <select id="toCurrency"></select>
       </div>
 
+      <!-- 转换按钮 -->
       <button onclick="convertCurrency()">转换</button>
+
+      <!-- 显示结果 -->
       <p class="result" id="result">结果：-</p>
 
+      <!-- 时间范围选择框 -->
       <label for="rangeSelector"><strong>时间范围：</strong></label>
       <select id="rangeSelector">
         <option value="7">7天</option>
@@ -139,16 +157,19 @@
       </select>
     </div>
 
+    <!-- 图表显示区域 -->
     <div class="chart-container">
       <canvas id="currencyChart" width="500" height="350"></canvas>
     </div>
   </div>
 
+  <!-- 页脚信息 -->
   <footer class="footer">
     <p>© 2025 华东理工大学 • 国际计算机科学学生</p>
   </footer>
 
   <script>
+    // 货币字典，包含每种货币的符号和国旗图标 URL
     const currencies = {
       "USD": { symbol: "$", flag: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" },
       "EUR": { symbol: "€", flag: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" },
@@ -164,6 +185,7 @@
     const fromSelect = document.getElementById('fromCurrency');
     const toSelect = document.getElementById('toCurrency');
 
+    // 填充所有货币到下拉框
     function populateCurrencies() {
       Object.keys(currencies).forEach(code => {
         const option1 = new Option(`${code} (${currencies[code].symbol})`, code);
@@ -176,14 +198,17 @@
       updateFlags();
     }
 
+    // 更新国旗图标
     function updateFlags() {
       document.getElementById('fromFlag').src = currencies[fromSelect.value].flag;
       document.getElementById('toFlag').src = currencies[toSelect.value].flag;
     }
 
+    // 当货币变动时更新国旗和图表
     fromSelect.addEventListener('change', () => { updateFlags(); updateChartFromSelectors(); });
     toSelect.addEventListener('change', () => { updateFlags(); updateChartFromSelectors(); });
 
+    // 使用 Frankfurter API 进行货币转换
     async function convertCurrency() {
       const amount = parseFloat(document.getElementById('amount').value);
       const from = fromSelect.value;
@@ -198,6 +223,7 @@
       }
     }
 
+    // 使用 Frankfurter API 获取过去汇率数据并绘制图表
     async function loadChart(from = 'USD', to = 'EUR', rangeDays = 30) {
       const end = new Date().toISOString().split('T')[0];
       const start = new Date(Date.now() - rangeDays * 86400000).toISOString().split('T')[0];
@@ -242,6 +268,7 @@
       });
     }
 
+    // 根据当前选择更新图表
     function updateChartFromSelectors() {
       const from = fromSelect.value;
       const to = toSelect.value;
@@ -249,8 +276,10 @@
       if (from !== to) loadChart(from, to, days);
     }
 
+    // 当时间选择改变时更新图表
     document.getElementById('rangeSelector').addEventListener('change', updateChartFromSelectors);
 
+    // 页面加载完成后初始化界面
     window.addEventListener('DOMContentLoaded', () => {
       populateCurrencies();
       updateChartFromSelectors();
