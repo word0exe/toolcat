@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反应速度测试</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>反应速度测试</h1>
+        
+        <div class="test-area" id="testArea">
+            <div class="message" id="message">点击开始测试</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value" id="lastTime">-</div>
+                <div class="stat-label">上次反应</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value" id="bestTime">-</div>
+                <div class="stat-label">最佳成绩</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value" id="avgTime">-</div>
+                <div class="stat-label">平均反应</div>
+            </div>
+        </div>
+        
+        <button id="startBtn">开始测试</button>
+        
+        <div class="instructions">
+            <p><strong>使用方法：</strong></p>
+            <ol>
+                <li>点击"开始测试"按钮</li>
+                <li>等待测试区域变成绿色</li>
+                <li>看到绿色后立即点击</li>
+                <li>你的反应时间会被记录</li>
+            </ol>
+            <p>注意：如果在变绿前点击，测试将无效。</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
