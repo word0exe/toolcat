@@ -2,16 +2,51 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>时间戳转换器</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时间戳转换工具</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>时间戳转换器</h2>
-  <div class="tool">
-    <input type="text" id="timestampInput" placeholder="请输入时间戳">
-    <button onclick="convertTimestamp()">转换</button>
-    <p id="result"></p>
+  <div class="container">
+    <h1>时间戳转换工具</h1>
+    
+    <div class="converter-box">
+      <div class="input-section">
+        <h3>时间戳 → 日期</h3>
+        <div class="input-group">
+          <input type="text" id="timestampInput" placeholder="输入时间戳（秒/毫秒）">
+          <button onclick="convertTimestamp()">转换</button>
+        </div>
+        <div class="format-options">
+          <label><input type="radio" name="timestampType" value="seconds" checked> 秒级时间戳</label>
+          <label><input type="radio" name="timestampType" value="milliseconds"> 毫秒级时间戳</label>
+        </div>
+        <div class="result" id="timestampResult"></div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="input-section">
+        <h3>日期 → 时间戳</h3>
+        <div class="input-group">
+          <input type="datetime-local" id="dateInput">
+          <button onclick="convertDate()">转换</button>
+        </div>
+        <div class="result" id="dateResult"></div>
+      </div>
+    </div>
+    
+    <div class="additional-info">
+      <h3>当前时间信息</h3>
+      <div class="current-time">
+        <p>当前时间戳（秒）：<span id="currentTimestampSec"></span></p>
+        <p>当前时间戳（毫秒）：<span id="currentTimestampMs"></span></p>
+        <p>当前本地时间：<span id="currentLocalTime"></span></p>
+        <p>当前UTC时间：<span id="currentUTCTime"></span></p>
+      </div>
+    </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,141 @@
-body { font-family: sans-serif; padding: 2rem; text-align: center; background: #eef; }
-.tool input, .tool button { margin: 0.5rem; padding: 0.5rem; }
-#result { margin-top: 1rem; font-weight: bold; }
+:root {
+  --primary-color: #4a6bdf;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --light-bg: #f8f9fa;
+  --border-color: #dee2e6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f7ff;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.converter-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.divider {
+  width: 1px;
+  background-color: var(--border-color);
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(74, 107, 223, 0.2);
+}
+
+.input-group button {
+  padding: 0.75rem 1.5rem;
+  margin-left: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.input-group button:hover {
+  background-color: #3a5bd0;
+}
+
+.format-options {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.format-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.result {
+  padding: 1rem;
+  background-color: var(--light-bg);
+  border-radius: 4px;
+  min-height: 60px;
+  word-break: break-all;
+}
+
+.additional-info {
+  padding: 1.5rem;
+  background-color: var(--light-bg);
+  border-radius: 4px;
+}
+
+.current-time p {
+  margin-bottom: 0.5rem;
+}
+
+.current-time span {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .converter-box {
+    flex-direction: column;
+  }
+  
+  .divider {
+    width: 100%;
+    height: 1px;
+    margin: 1rem 0;
+  }
+}
