@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>汇率转换器</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #d9c9ff, #f3e6ff);
+      animation: gradientMove 20s ease infinite;
+      margin: 0;
+      padding: 40px;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .converter {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      width: 360px;
+    }
+
+    .converter h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .converter input,
+    .converter select,
+    .converter button {
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    .converter button {
+      background-color: #7d29cc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .converter button:hover {
+      transform: scale(1.04);
+      background-color: #5e1f9e;
+    }
+
+    .converter select {
+      transition: transform 0.2s ease;
+    }
+
+    .converter select:hover {
+      transform: scale(1.02);
+    }
+
+    .result {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .flag-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .flag {
+      width: 28px;
+      height: 20px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+
+    .chart-container {
+      min-width: 480px;
+      flex: 1;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      color: #888;
+      font-size: 16px;
+      font-weight: 500;
+      border-top: 1px solid #ccc;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="converter">
+      <h2>货币转换器</h2>
+      <input type="number" id="amount" placeholder="金额" min="0" />
+
+      <div class="flag-row">
+        <img id="fromFlag" class="flag" src="" alt="flag">
+        <select id="fromCurrency"></select>
+      </div>
+      <div class="flag-row">
+        <img id="toFlag" class="flag" src="" alt="flag">
+        <select id="toCurrency"></select>
+      </div>
+
+      <button onclick="convertCurrency()">转换</button>
+      <p class="result" id="result">结果：-</p>
+
+      <label for="rangeSelector"><strong>时间范围：</strong></label>
+      <select id="rangeSelector">
+        <option value="7">7天</option>
+        <option value="30" selected>30天</option>
+        <option value="90">3个月</option>
+        <option value="180">6个月</option>
+      </select>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="currencyChart" width="500" height="350"></canvas>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 华东理工大学 • 国际计算机科学学生</p>
+  </footer>
+
+  <script>
+    const currencies = {
+      "USD": { symbol: "$", flag: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" },
+      "EUR": { symbol: "€", flag: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg" },
+      "JPY": { symbol: "¥", flag: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg" },
+      "GBP": { symbol: "£", flag: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" },
+      "CNY": { symbol: "¥", flag: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg" },
+      "BRL": { symbol: "R$", flag: "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg" },
+      "MXN": { symbol: "$", flag: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg" },
+      "AUD": { symbol: "$", flag: "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" },
+      "CAD": { symbol: "$", flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" },
+    };
+
+    const fromSelect = document.getElementById('fromCurrency');
+    const toSelect = document.getElementById('toCurrency');
+
+    function populateCurrencies() {
+      Object.keys(currencies).forEach(code => {
+        const option1 = new Option(`${code} (${currencies[code].symbol})`, code);
+        const option2 = new Option(`${code} (${currencies[code].symbol})`, code);
+        fromSelect.add(option1);
+        toSelect.add(option2);
+      });
+      fromSelect.value = 'USD';
+      toSelect.value = 'EUR';
+      updateFlags();
+    }
+
+    function updateFlags() {
+      document.getElementById('fromFlag').src = currencies[fromSelect.value].flag;
+      document.getElementById('toFlag').src = currencies[toSelect.value].flag;
+    }
+
+    fromSelect.addEventListener('change', () => { updateFlags(); updateChartFromSelectors(); });
+    toSelect.addEventListener('change', () => { updateFlags(); updateChartFromSelectors(); });
+
+    async function convertCurrency() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const from = fromSelect.value;
+      const to = toSelect.value;
+      if (isNaN(amount) || amount < 0) return;
+      try {
+        const response = await fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`);
+        const data = await response.json();
+        document.getElementById('result').textContent = `结果：${data.rates[to].toFixed(5)} ${currencies[to].symbol}`;
+      } catch (error) {
+        document.getElementById('result').textContent = `无法转换 ${from} 到 ${to}`;
+      }
+    }
+
+    async function loadChart(from = 'USD', to = 'EUR', rangeDays = 30) {
+      const end = new Date().toISOString().split('T')[0];
+      const start = new Date(Date.now() - rangeDays * 86400000).toISOString().split('T')[0];
+      const response = await fetch(`https://api.frankfurter.app/${start}..${end}?from=${from}&to=${to}`);
+      const data = await response.json();
+      const labels = Object.keys(data.rates);
+      const values = labels.map(date => data.rates[date][to]);
+      const ctx = document.getElementById('currencyChart').getContext('2d');
+      if (window.myChart) window.myChart.destroy();
+      window.myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: `1 ${from} 转换为 ${to}（最近${rangeDays}天）`,
+            data: values,
+            borderColor: '#7d29cc',
+            tension: 0.2,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            tooltip: {
+              callbacks: {
+                title: (tooltipItems) => `日期：${tooltipItems[0].label}`
+              }
+            },
+            legend: { position: 'top' },
+            title: {
+              display: true,
+              text: `汇率走势图：${from} 到 ${to}`
+            }
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: { grid: { display: true } }
+          }
+        }
+      });
+    }
+
+    function updateChartFromSelectors() {
+      const from = fromSelect.value;
+      const to = toSelect.value;
+      const days = parseInt(document.getElementById('rangeSelector').value);
+      if (from !== to) loadChart(from, to, days);
+    }
+
+    document.getElementById('rangeSelector').addEventListener('change', updateChartFromSelectors);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      populateCurrencies();
+      updateChartFromSelectors();
+    });
+  </script>
+</body>
+</html>
