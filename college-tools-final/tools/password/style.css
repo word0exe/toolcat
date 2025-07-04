@@ -1,3 +1,42 @@
-body { font-family: sans-serif; padding: 2rem; text-align: center; background: #eff; }
-input, button { margin: 0.5rem; padding: 0.5rem; }
-#result { margin-top: 1rem; font-weight: bold; }
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  text-align: center;
+  background: #eff;
+}
+
+input, button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+#result {
+  margin-top: 1rem;
+}
+
+.password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#password {
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: bold;
+  min-width: 150px;
+  display: inline-block;
+}
+
+#copy-btn {
+  transition: all 0.3s ease;
+}
+
+.copied {
+  background-color: #4CAF50;
+  color: white;
+}
