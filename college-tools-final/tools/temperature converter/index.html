@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Temperature Unit Converter</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>温度单位转换器</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>🌡️ Temperature Converter</h1>
+    <h1>🌡️ 温度转换器</h1>
 
-    <label for="inputTemp">Enter Temperature:</label>
-    <input type="number" id="inputTemp" placeholder="e.g. 100">
+    <label for="inputTemp">输入温度：</label>
+    <input type="number" id="inputTemp" placeholder="例如：100">
 
-    <label for="fromUnit">From:</label>
+    <label for="fromUnit">从：</label>
     <select id="fromUnit">
-      <option value="C">Celsius (°C)</option>
-      <option value="F">Fahrenheit (°F)</option>
-      <option value="K">Kelvin (K)</option>
-      <option value="R">Rankine (°R)</option>
-      <option value="Re">Réaumur (°Ré)</option>
+      <option value="C">摄氏度 (°C)</option>
+      <option value="F">华氏度 (°F)</option>
+      <option value="K">开尔文 (K)</option>
+      <option value="R">兰金度 (°R)</option>
+      <option value="Re">列氏度 (°Ré)</option>
     </select>
 
-    <label for="toUnit">To:</label>
+    <label for="toUnit">到：</label>
     <select id="toUnit">
-      <option value="C">Celsius (°C)</option>
-      <option value="F">Fahrenheit (°F)</option>
-      <option value="K">Kelvin (K)</option>
-      <option value="R">Rankine (°R)</option>
-      <option value="Re">Réaumur (°Ré)</option>
+      <option value="C">摄氏度 (°C)</option>
+      <option value="F">华氏度 (°F)</option>
+      <option value="K">开尔文 (K)</option>
+      <option value="R">兰金度 (°R)</option>
+      <option value="Re">列氏度 (°Ré)</option>
     </select>
 
-    <button id="convertBtn">Convert</button>
+    <button id="convertBtn">转换</button>
 
     <div id="result"></div>
   </div>

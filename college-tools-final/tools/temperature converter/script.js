@@ -1,4 +1,3 @@
-// script.js
 $(document).ready(function () {
   $('#convertBtn').click(function () {
     const value = parseFloat($('#inputTemp').val());
