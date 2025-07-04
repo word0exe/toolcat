@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Temperature Unit Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌡️ Temperature Converter</h1>
+
+    <label for="inputTemp">Enter Temperature:</label>
+    <input type="number" id="inputTemp" placeholder="e.g. 100">
+
+    <label for="fromUnit">From:</label>
+    <select id="fromUnit">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+      <option value="R">Rankine (°R)</option>
+      <option value="Re">Réaumur (°Ré)</option>
+    </select>
+
+    <label for="toUnit">To:</label>
+    <select id="toUnit">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+      <option value="R">Rankine (°R)</option>
+      <option value="Re">Réaumur (°Ré)</option>
+    </select>
+
+    <button id="convertBtn">Convert</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
