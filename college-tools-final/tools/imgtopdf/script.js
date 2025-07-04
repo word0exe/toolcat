@@ -53,7 +53,7 @@ $(document).ready(function() {
             $imagePreview.attr('src', e.target.result).show();
             $convertBtn.prop('disabled', false);
             $downloadLink.hide();
-            $convertBtn.text('Convert to PDF');
+            $convertBtn.text('开始处理');
         };
         
         reader.readAsDataURL(file);
@@ -95,7 +95,7 @@ $(document).ready(function() {
                 .attr('download', 'converted-image.pdf')
                 .show();
                 
-            $convertBtn.text('Converted!');
+            $convertBtn.text('完成处理!');
         });
     }
 });
