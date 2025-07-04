@@ -3,6 +3,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: rgba(190, 255, 233, 0.733);
 }
 
 .container {
@@ -10,6 +11,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     text-align: center;
+    background-color: white;
 }
 
 h1 {
@@ -23,10 +25,11 @@ h1 {
     cursor: pointer;
     margin: 20px 0;
     transition: all 0.3s;
+    background-color: white; /* Explicit white background */
 }
 
 .drop-area:hover, .drop-area.active {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Lighter gray on hover */
     border-color: #2ecc71;
 }
 
