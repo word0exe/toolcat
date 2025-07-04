@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <title>BMI 计算器</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>BMI 计算器（箭头指示）</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h2>BMI 计算器</h2>
-  <div class="tool">
-    <input type="number" id="height" placeholder="身高 (cm)" />
-    <input type="number" id="weight" placeholder="体重 (kg)" />
-    <button onclick="calculateBMI()">计算</button>
-    <p id="result"></p>
+  <h2>BMI 计算器（含箭头和区间）</h2>
+  <div class="bmi-form">
+    <label>身高(cm): <input type="number" id="height" value="170"></label><br>
+    <label>体重(kg): <input type="number" id="weight" value="60"></label><br>
+    <button onclick="calculateBMI()">计算 BMI</button>
+    <p id="result">请输入数值后点击按钮</p>
+
+    <div class="bmi-band">
+      <div class="band-labels">
+        <span>偏瘦</span><span>正常</span><span>超重</span><span>肥胖</span>
+      </div>
+      <div class="band-bar" id="bandBar">
+        <div class="arrow" id="bmiArrow">▼</div>
+      </div>
+      <div class="band-values">
+        <span>0</span><span>18.5</span><span>24.9</span><span>29.9</span><span>40+</span>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
