@@ -2,17 +2,35 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <title>大学生工具集合</title>
+  <title>ToolCat</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>大学生工具集合</h1>
+  <div class="header">
+      <img id="Logo" src="resources/img/ToolcatLOGO.jpg" alt="ToolCat Logo" width="100px">
+      <h1>ToolCat</h1>
+  </div> 
+  <input type="text" id="searchInput" placeholder="搜索工具..." />
+
   <div class="tool-grid">
     <a href="tools/timestamp/index.html">时间戳转换器</a>
-<a href="tools/qrcode/index.html">二维码生成器</a>
-<a href="tools/calculator/index.html">简易计算器</a>
-<a href="tools/bmi/index.html">BMI 计算器</a>
-<a href="tools/password/index.html">随机密码生成器</a>
+    <a href="tools/qrcode/index.html">二维码生成器</a>
+    <a href="tools/calculator/index.html">简易计算器</a>
+    <a href="tools/bmi/index.html">BMI 计算器</a>
+    <a href="tools/password/index.html">随机密码生成器</a>
   </div>
+
+  <script>
+    const input = document.getElementById('searchInput');
+    const links = document.querySelectorAll('.tool-grid a');
+
+    input.addEventListener('input', function () {
+      const keyword = this.value.toLowerCase();
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        link.style.display = text.includes(keyword) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
