@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>温度单位转换器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌡️ 温度转换器</h1>
+
+    <label for="inputTemp">输入温度：</label>
+    <input type="number" id="inputTemp" placeholder="例如：100">
+
+    <label for="fromUnit">从：</label>
+    <select id="fromUnit">
+      <option value="C">摄氏度 (°C)</option>
+      <option value="F">华氏度 (°F)</option>
+      <option value="K">开尔文 (K)</option>
+      <option value="R">兰金度 (°R)</option>
+      <option value="Re">列氏度 (°Ré)</option>
+    </select>
+
+    <label for="toUnit">到：</label>
+    <select id="toUnit">
+      <option value="C">摄氏度 (°C)</option>
+      <option value="F">华氏度 (°F)</option>
+      <option value="K">开尔文 (K)</option>
+      <option value="R">兰金度 (°R)</option>
+      <option value="Re">列氏度 (°Ré)</option>
+    </select>
+
+    <button id="convertBtn">转换</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
