@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: linear-gradient(135deg, #d9c9ff, #f3e6ff);
+  animation: gradientMove 20s ease infinite;
+  margin: 0;
+  padding: 40px;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.converter {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  width: 360px;
+}
+
+.converter h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.converter input,
+.converter select,
+.converter button {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.converter button {
+  background-color: #7d29cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.converter button:hover {
+  transform: scale(1.04);
+  background-color: #5e1f9e;
+}
+
+.converter select {
+  transition: transform 0.2s ease;
+}
+
+.converter select:hover {
+  transform: scale(1.02);
+}
+
+.result {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.flag-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.flag {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.chart-container {
+  min-width: 480px;
+  flex: 1;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  color: #888;
+  font-size: 16px;
+  font-weight: 500;
+  border-top: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
