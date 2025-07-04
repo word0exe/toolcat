@@ -1,0 +1,62 @@
+/* styles.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffeef2; /* Soft pastel pink */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: #ffffff;
+  padding: 30px;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f3c6d3;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #d6336c;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  text-align: left;
+  color: #333;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #d6336c;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b02a50;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #444;
+}
