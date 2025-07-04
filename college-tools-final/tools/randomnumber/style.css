@@ -1,0 +1,37 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e2e8f0;
+}
+
+.generator {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  width: 350px;
+}
+
+.generator input {
+  width: 93%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.generator button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#results {
+  margin-top: 15px;
+  font-size: 16px;
+  word-break: break-word;
+}

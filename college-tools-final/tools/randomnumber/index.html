@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Number Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="generator">
+  <h2>随机数生成器</h2>
+
+  <input type="number" id="amount" placeholder="随机数个数 (1–50)" min="1" max="50">
+  <input type="number" id="min" placeholder="最小值 (≥1)" min="1">
+  <input type="number" id="max" placeholder="最大值 (≤9999)" max="9999">
+
+  <button onclick="generateRandomNumbers()">生成</button>
+
+  <div id="results"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
