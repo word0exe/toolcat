@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>随机密码生成器</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h2>随机密码生成器</h2>
   <div class="tool">
-    <input type="number" id="length" value="12" min="4" max="64">
-    <button onclick="generatePassword()">生成密码</button>
-    <p id="result"></p>
+    <input type="number" id="length" value="12" min="4" max="12">
+    <button id="generate-btn">生成密码</button>
+    <div id="result">
+      <div class="password-container">
+        <span id="password"></span>
+        <button id="copy-btn" disabled>复制</button>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
