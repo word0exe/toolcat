@@ -7,11 +7,14 @@
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 <body>
-  <h2>二维码生成器</h2>
-  <div class="tool">
-    <input type="text" id="qrText" placeholder="请输入要编码的内容">
-    <button onclick="generateQR()">生成二维码</button>
-    <canvas id="qrcode"></canvas>
+  <div class="container">
+    <h2>二维码生成器</h2>
+    <div class="tool">
+      <input type="text" id="qrText" placeholder="请输入要编码的内容">
+      <button onclick="generateQR()">生成二维码</button>
+      <button onclick="downloadQR()">下载二维码</button>
+      <canvas id="qrcode"></canvas>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
