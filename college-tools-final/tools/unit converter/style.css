@@ -1,0 +1,71 @@
+/* 背景渐变动画 */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f3e7ff, #e1d5fb, #f6e6ff);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* 渐变动画关键帧 */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 卡片容器样式 */
+.converter-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* 元素样式 */
+label, select, input {
+  display: block;
+  margin: 15px auto;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* 按钮样式 */
+button {
+  background: linear-gradient(to right, #d946ef, #9333ea);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+}
+
+/* 结果输出 */
+#result {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* 页脚样式 */
+footer {
+  margin-top: 40px;
+  color: #666;
+  font-size: 0.9rem;
+}

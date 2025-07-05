@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>单位转换器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="converter-container">
+    <h1>📏 单位转换器</h1>
+    <label for="category">选择转换类型：</label>
+    <select id="category">
+      <option value="length">长度</option>
+      <option value="area">面积</option>
+      <option value="volume">体积</option>
+      <option value="weight">质量</option>
+      <option value="speed">速度</option>
+    </select>
+
+    <label for="value">数值：</label>
+    <input type="number" id="value" placeholder="输入数值" min="0" />
+
+    <label for="fromUnit">从：</label>
+    <select id="fromUnit"></select>
+
+    <label for="toUnit">到：</label>
+    <select id="toUnit"></select>
+
+    <button onclick="convert()">转换</button>
+
+    <div id="result"></div>
+  </div>
+
+  <footer>
+    <p>© 2025 华东理工大学 ・ 国际计算机科学学生</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
