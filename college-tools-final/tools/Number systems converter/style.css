@@ -1,0 +1,99 @@
+/* 设置整体页面样式，包括字体、背景动画等 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif; /* 使用干净的字体 */
+  background: linear-gradient(-45deg, #b5f3ff, #d5ccff, #f6e1ff, #ffdee9); /* 渐变背景 */
+  background-size: 400% 400%; /* 背景大小放大以便动画 */
+  animation: bgFlow 15s ease infinite; /* 无限动画循环 */
+}
+
+/* 定义背景渐变动画 */
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 主容器样式：设置白色卡片居中并添加阴影和圆角 */
+.converter-container {
+  background: white;
+  max-width: 420px;
+  margin: 80px auto 40px; /* 上间距大、左右居中 */
+  padding: 30px 40px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* 柔和阴影 */
+  text-align: center;
+}
+
+/* 标题样式 */
+h1 {
+  margin-bottom: 20px;
+  color: #6d3cb4; /* 紫色 */
+}
+
+/* 输入区域分组：包括标签与输入框 */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* 标签样式 */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* 输入框和下拉菜单的通用样式 */
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 聚焦时的样式：更明显的边框和光晕 */
+input:focus, select:focus {
+  outline: none;
+  border-color: #8b59e0;
+  box-shadow: 0 0 6px rgba(139, 89, 224, 0.3);
+}
+
+/* 按钮样式 */
+button {
+  background-color: #8b59e0;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* 添加点击动画 */
+}
+
+/* 鼠标悬停时按钮放大与颜色变化 */
+button:hover {
+  background-color: #6f3cc6;
+  transform: scale(1.05);
+}
+
+/* 结果文本样式 */
+.result {
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 页脚样式：位于页面底部，颜色较浅 */
+footer {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- 定义文档类型为 HTML5 -->
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 设置视口以适应移动设备 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 网页标题 -->
+  <title>数字系统转换器</title>
+  <!-- 引入外部 CSS 文件 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 主容器：包含所有转换器内容 -->
+  <div class="converter-container">
+    <!-- 页面标题 -->
+    <h1>数字系统转换器</h1>
+
+    <!-- 输入框组：输入要转换的数字 -->
+    <div class="input-group">
+      <label for="inputValue">请输入数值：</label>
+      <input type="text" id="inputValue" placeholder="例如：1010" />
+    </div>
+
+    <!-- 输入框组：选择原始数字系统 -->
+    <div class="input-group">
+      <label for="fromSystem">从系统：</label>
+      <select id="fromSystem">
+        <option value="binary">二进制 (Binary)</option>
+        <option value="decimal" selected>十进制 (Decimal)</option>
+        <option value="hexadecimal">十六进制 (Hexadecimal)</option>
+        <option value="octal">八进制 (Octal)</option>
+      </select>
+    </div>
+
+    <!-- 输入框组：选择目标数字系统 -->
+    <div class="input-group">
+      <label for="toSystem">到系统：</label>
+      <select id="toSystem">
+        <option value="binary">二进制 (Binary)</option>
+        <option value="decimal">十进制 (Decimal)</option>
+        <option value="hexadecimal">十六进制 (Hexadecimal)</option>
+        <option value="octal">八进制 (Octal)</option>
+      </select>
+    </div>
+
+    <!-- 转换按钮，点击时调用 convert() 函数 -->
+    <button onclick="convert()">转换</button>
+
+    <!-- 显示转换结果 -->
+    <div class="result" id="result">结果：-</div>
+  </div>
+
+  <!-- 页面底部的版权信息（不在容器内部） -->
+  <footer>
+    <p>© 2025 华东理工大学 · 国际计算机科学学生</p>
+  </footer>
+
+  <!-- 引入 JavaScript 文件 -->
+  <script src="script.js"></script>
+</body>
+</html>
