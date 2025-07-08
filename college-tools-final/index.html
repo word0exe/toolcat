@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8" />
   <title>ToolCat</title>
   <link rel="stylesheet" href="style.css" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script src="star.js"></script>
+  <link rel="stylesheet" href="sidebar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="sidebar.js"></script>
 </head>
+
 <body>
+  <!-- 侧边栏按钮 -->
+  <div class="sidebar-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- 侧边栏 -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>菜单</h3>
+      <span class="close-btn">&times;</span>
+    </div>
+    <div class="sidebar-content">
+      <button class="sidebar-btn" id="showFavorites">
+        <i class="fas fa-star"></i> 收藏工具
+      </button>
+      <button class="sidebar-btn" id="showAll">
+        <i class="fas fa-th"></i> 全部工具
+      </button>
+      <button class="sidebar-btn" id="darkMode">
+        <i class="fas fa-moon"></i> 夜间模式
+      </button>
+      <a href="About.html" class="sidebar-btn">
+        <i class="fas fa-info-circle"></i> 关于
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-overlay"></div>
+
+
   <div class="header">
-      <img id="Logo" src="resources/img/ToolCat LOGO.png" alt="ToolCat Logo" width="100px">
-      <h1>Tool Cat</h1>
-  </div> 
+    <img id="Logo" src="resources/img/ToolCat LOGO.png" alt="ToolCat Logo" width="100px">
+    <h1>Tool Cat</h1>
+  </div>
   <input type="text" id="searchInput" placeholder="搜索工具..." />
 
-    <div class="tool-grid">
+  <div class="tool-grid">
     <a href="tools/timestamp/index.html">时间戳转换器<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/qrcode/index.html">二维码生成器<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/calculator/index.html">简易计算器<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/bmi/index.html">BMI 计算器<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/randomnumber/index.html">随机数生成器<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/password/index.html">随机密码生成器<span class="star"><i class="far fa-star"></i></span></a>
-    <a href="tools/Currency Converter/CurrencyConverter.html">汇率转换器<span class="star"><i class="far fa-star"></i></span></a>
+    <a href="tools/Currency Converter/CurrencyConverter.html">汇率转换器<span class="star"><i
+          class="far fa-star"></i></span></a>
     <a href="tools/imgtopdf/index.html">图片转PDF文件<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/Reaction Test/reaction.html">反应速度测试<span class="star"><i class="far fa-star"></i></span></a>
     <a href="tools/temperature converter/index.html">温度转换器<span class="star"><i class="far fa-star"></i></span></a>
@@ -61,9 +94,9 @@
       star.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const toolName = links[index].textContent.trim();
-        
+
         if (star.classList.contains('far')) {
           star.classList.replace('far', 'fas');
           star.style.color = '#ffcc00';
@@ -73,7 +106,7 @@
           star.style.color = '';
           localStorage.removeItem(toolName);
         }
-        
+
         sortFavorites();
       });
     });
@@ -82,19 +115,19 @@
     function sortFavorites() {
       const toolGrid = document.querySelector('.tool-grid');
       const tools = Array.from(links);
-      
+
       // 按收藏状态排序
       tools.sort((a, b) => {
         const aStar = a.querySelector('.star i');
         const bStar = b.querySelector('.star i');
         const aIsFav = aStar.classList.contains('fas');
         const bIsFav = bStar.classList.contains('fas');
-        
+
         if (aIsFav && !bIsFav) return -1;
         if (!aIsFav && bIsFav) return 1;
         return 0;
       });
-      
+
       // 重新添加元素
       tools.forEach(tool => {
         toolGrid.appendChild(tool);
@@ -102,4 +135,5 @@
     }
   </script>
 </body>
+
 </html>

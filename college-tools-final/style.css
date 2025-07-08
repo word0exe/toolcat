@@ -102,3 +102,68 @@ h1 {
 .tool-grid a:hover {
   transform: scale(1.05);
 }
+
+/* 添加关于页面样式 */
+.about-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.about-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.about-card h2 {
+  color: #333;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.about-card p, .about-card ul {
+  line-height: 1.6;
+  color: #555;
+}
+
+.about-card ul {
+  padding-left: 1.5rem;
+}
+
+/* 更新侧边栏按钮样式 */
+.sidebar-btn.active {
+  background: #e0e0e0;
+}
+
+body.dark-mode .sidebar-btn.active {
+  background: #555;
+}
+
+/* 确保链接按钮样式一致 */
+.sidebar-content a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+body.dark-mode .about-card {
+  background: #333;
+  color: #eee;
+}
+
+body.dark-mode .about-card h2 {
+  color: #eee;
+  border-bottom: 1px solid #555;
+}
+
+body.dark-mode .about-card p, 
+body.dark-mode .about-card ul {
+  color: #ddd;
+}
+
+body.dark-mode .about-card ul {
+  color: #ccc;
+}
