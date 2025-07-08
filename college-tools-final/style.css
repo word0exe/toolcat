@@ -45,8 +45,8 @@ h1 {
 }
 
 .tool-grid a {
+  position: relative;
   display: block;
-  width: 130px;
   padding: 1.5rem;
   background: white;
   border-radius: 10px;
@@ -54,8 +54,116 @@ h1 {
   color: #333;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   transition: transform 0.2s;
+  min-width: 150px;
+}
+
+.star {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.tool-grid a .star i.far {
+  opacity: 0;
+}
+
+.tool-grid a:hover .star i.far {
+  opacity: 1;
+}
+
+/* 已收藏的星星始终显示 */
+.tool-grid a .star i.fas {
+  opacity: 1 !important;
+  color: #ffcc00;
+}
+
+.star i {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.tool-grid a:hover .star {
+  opacity: 1;
+}
+
+.star i {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.star i.fas {
+  color: #ffcc00;
+  opacity: 1 !important;
 }
 
 .tool-grid a:hover {
   transform: scale(1.05);
+}
+
+/* 添加关于页面样式 */
+.about-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.about-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.about-card h2 {
+  color: #333;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.about-card p, .about-card ul {
+  line-height: 1.6;
+  color: #555;
+}
+
+.about-card ul {
+  padding-left: 1.5rem;
+}
+
+/* 更新侧边栏按钮样式 */
+.sidebar-btn.active {
+  background: #e0e0e0;
+}
+
+body.dark-mode .sidebar-btn.active {
+  background: #555;
+}
+
+/* 确保链接按钮样式一致 */
+.sidebar-content a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+body.dark-mode .about-card {
+  background: #333;
+  color: #eee;
+}
+
+body.dark-mode .about-card h2 {
+  color: #eee;
+  border-bottom: 1px solid #555;
+}
+
+body.dark-mode .about-card p, 
+body.dark-mode .about-card ul {
+  color: #ddd;
+}
+
+body.dark-mode .about-card ul {
+  color: #ccc;
 }
