@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>猜猜国旗</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎌 猜猜国旗</h1>
+
+    <div id="start-screen">
+      <div class="controls" id="selector-box">
+        🌍 选择一个洲：
+        <select id="continent-select">
+          <option value="全部">全部</option>
+          <option value="非洲">非洲</option>
+          <option value="美洲">美洲</option>
+          <option value="亚洲">亚洲</option>
+          <option value="欧洲">欧洲</option>
+          <option value="大洋洲">大洋洲</option>
+        </select>
+      </div>
+      <button id="start-btn">开始游戏</button>
+    </div>
+
+    <div id="flag-container" class="flag-area" style="display: none;">
+      <p id="counter" style="display: none;"></p>
+      <img id="flag-img" src="" alt="国旗" />
+      <div id="options" class="options-box"></div>
+      <div id="feedback" class="result-area"></div> <!-- Nuevo feedback temporal -->
+      <button id="quit-btn" style="display: none;">结束游戏</button>
+    </div>
+
+   
+    <div id="result" class="result-area" style="display: none;"></div>
+
+    <button id="restart-btn" style="display: none;">🔄 重新开始</button>
+
+    <footer>© 2025 华东理工大学 · 国际计算机科学学生</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
