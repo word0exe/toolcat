@@ -1,0 +1,192 @@
+/* style.css */
+/* ===== 基础样式重置 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 古典风格装饰元素 */
+  .container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #8b4513, #cd7f32, #8b4513);
+  }
+  
+  /* ===== 标题样式 ===== */
+  h2 {
+    text-align: center;
+    color: #3a2c1c;
+    margin-bottom: 25px;
+    font-size: 32px;
+    position: relative;
+    font-weight: 600;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 35%;
+    right: 35%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #8b4513, transparent);
+  }
+  
+  /* ===== 转换器部分样式 ===== */
+  .converter-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f5f0;
+    border: 1px solid #eae0d5;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5d4a30;
+    font-size: 16px;
+  }
+  
+  input[type="number"],
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #d9c8b0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #fffdf9;
+  }
+  
+  input[type="number"]:focus,
+  input[type="text"]:focus {
+    border-color: #8b4513;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.2);
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(to bottom, #8b4513, #6b3a10);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  button:hover {
+    background: linear-gradient(to bottom, #6b3a10, #5a2f0d);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  .output {
+    min-height: 40px;
+    margin-top: 15px;
+    padding: 12px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #3a2c1c;
+    border-radius: 6px;
+    background: #f0e6d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  /* ===== 分隔线样式 ===== */
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d9c8b0, transparent);
+    margin: 25px 0;
+  }
+  
+  /* ===== 响应式设计 ===== */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+    
+    h2 {
+      font-size: 28px;
+    }
+    
+    .converter-section {
+      padding: 15px;
+    }
+  }
+  
+  /* ===== 动画效果 ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .converter-section {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .converter-section:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  /* 结果成功动画 */
+  .output.success {
+    color: #2e7d32;
+    background: #e8f5e9;
+  }
+  
+  /* 错误状态 */
+  .input-error {
+    border-color: #c62828 !important;
+    animation: shake 0.5s;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
