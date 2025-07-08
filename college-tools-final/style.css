@@ -46,6 +46,7 @@ h1 {
 
 .tool-grid a {
   display: block;
+  width: 130px;
   padding: 1.5rem;
   background: white;
   border-radius: 10px;
