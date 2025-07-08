@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>罗马数字转换器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>罗马数字转换器</h2>
+
+    <label for="arabicInput">阿拉伯数字 (1 - 99999)</label>
+    <input type="number" id="arabicInput" min="1" max="99999" placeholder="输入阿拉伯数字">
+    <button onclick="convertToRoman()">转换为罗马数字</button>
+    <div id="romanOutput" class="output"></div>
+
+    <hr>
+
+    <label for="romanInput">罗马数字</label>
+    <input type="text" id="romanInput" placeholder="输入罗马数字">
+    <button onclick="convertToArabic()">转换为阿拉伯数字</button>
+    <div id="arabicOutput" class="output"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

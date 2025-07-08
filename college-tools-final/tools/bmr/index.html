@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础代谢率计算器</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>基础代谢率计算器 (BMR)</h1>
+        
+        <div class="input-group">
+            <label for="gender">性别</label>
+            <div class="gender-group">
+                <div class="gender-option" data-value="male">男</div>
+                <div class="gender-option selected" data-value="female">女</div>
+            </div>
+            <input type="hidden" id="gender" value="female">
+        </div>
+        
+        <div class="input-group">
+            <label for="age">年龄 <span class="unit">(岁)</span></label>
+            <input type="number" id="age" min="10" max="120" value="30">
+        </div>
+        
+        <div class="input-group">
+            <label for="height">身高 <span class="unit">(厘米)</span></label>
+            <input type="number" id="height" min="100" max="250" value="165">
+        </div>
+        
+        <div class="input-group">
+            <label for="weight">体重 <span class="unit">(公斤)</span></label>
+            <input type="number" id="weight" min="30" max="300" value="60">
+        </div>
+        
+        <div class="input-group activity-group">
+            <label for="activity">日常活动量</label>
+            <select id="activity">
+                <option value="1.2">很少或没有运动</option>
+                <option value="1.375">轻度活动 (每周1-3天运动)</option>
+                <option value="1.55" selected>中度活动 (每周3-5天运动)</option>
+                <option value="1.725">重度活动 (每周6-7天运动)</option>
+                <option value="1.9">非常重的活动 (体力劳动工作或每天训练)</option>
+            </select>
+        </div>
+        
+        <button id="calculate" class="calculate-btn">计算 BMR</button>
+        
+        <div class="result">
+            <h3>您的计算结果</h3>
+            <div class="result-item">
+                <span class="result-label">基础代谢率 (BMR)</span>
+                <span class="result-value" id="bmrResult">0 千卡/天</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">每日所需热量</span>
+                <span class="result-value" id="calorieResult">0 千卡/天</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            基础代谢率是指您在休息状态下燃烧的卡路里数量
+        </div>
+    </div>
+</body>
+</html>

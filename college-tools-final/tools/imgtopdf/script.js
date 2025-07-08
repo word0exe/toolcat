@@ -5,16 +5,13 @@ $(document).ready(function() {
     const $convertBtn = $('#convertBtn');
     const $downloadLink = $('#downloadLink');
     
-    // File selection handler
     $fileInput.on('change', handleFile);
     
-    // Drag and drop event handlers
     $dropArea.on('dragenter dragover dragleave drop', preventDefaults);
     $dropArea.on('dragenter dragover', highlight);
     $dropArea.on('dragleave drop', unhighlight);
     $dropArea.on('drop', handleDrop);
     
-    // Convert button handler
     $convertBtn.on('click', convertToPdf);
     
     function preventDefaults(e) {
@@ -67,7 +64,6 @@ $(document).ready(function() {
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF();
             
-            // Calculate dimensions to fit in A4
             const aspectRatio = img.width / img.height;
             const pageWidth = pdf.internal.pageSize.getWidth();
             const pageHeight = pdf.internal.pageSize.getHeight();
@@ -80,13 +76,11 @@ $(document).ready(function() {
                 imgWidth = pageHeight * aspectRatio;
             }
             
-            // Center the image
             const x = (pageWidth - imgWidth) / 2;
             const y = (pageHeight - imgHeight) / 2;
             
             pdf.addImage(img, 'JPEG', x, y, imgWidth, imgHeight);
             
-            // Generate PDF and create download link
             const pdfBlob = pdf.output('blob');
             const url = URL.createObjectURL(pdfBlob);
             
