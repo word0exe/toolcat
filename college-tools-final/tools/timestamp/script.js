@@ -29,7 +29,7 @@ function convertTimestamp() {
   const resultElement = document.getElementById("timestampResult");
   
   if (isNaN(timestamp)) {
-    resultElement.innerHTML = "<span style='color: red;'>请输入有效的时间戳</span>";
+    resultElement.innerHTML = "<span class='error'>请输入有效的时间戳</span>";
     return;
   }
   
@@ -37,7 +37,7 @@ function convertTimestamp() {
   const date = isMilliseconds ? new Date(timestamp) : new Date(timestamp * 1000);
   
   if (isNaN(date.getTime())) {
-    resultElement.innerHTML = "<span style='color: red;'>时间戳超出范围</span>";
+    resultElement.innerHTML = "<span class='error'>时间戳超出范围</span>";
     return;
   }
   
@@ -60,14 +60,14 @@ function convertDate() {
   const resultElement = document.getElementById("dateResult");
   
   if (!dateInput) {
-    resultElement.innerHTML = "<span style='color: red;'>请选择日期和时间</span>";
+    resultElement.innerHTML = "<span class='error'>请选择日期和时间</span>";
     return;
   }
   
   const date = new Date(dateInput);
   
   if (isNaN(date.getTime())) {
-    resultElement.innerHTML = "<span style='color: red;'>无效的日期格式</span>";
+    resultElement.innerHTML = "<span class='error'>无效的日期格式</span>";
     return;
   }
   

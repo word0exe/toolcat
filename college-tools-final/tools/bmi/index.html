@@ -2,27 +2,53 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>BMI 计算器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI 健康计算器</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h2>BMI 计算器</h2>
-  <div class="bmi-form">
-    <label>身高(cm): <input type="number" id="height" value="170"></label><br>
-    <label>体重(kg): <input type="number" id="weight" value="60"></label><br>
-    <button onclick="calculateBMI()">计算 BMI</button>
-    <p id="result">请输入数值后点击按钮</p>
-
-    <div class="bmi-band">
-      <div class="band-labels">
-        <span>偏瘦</span><span>正常</span><span>超重</span><span>肥胖</span>
+  <div class="container">
+    <h1>BMI 健康计算器</h1>
+    
+    <div class="calculator-card">
+      <div class="input-group">
+        <label for="height">身高 (cm)</label>
+        <input type="number" id="height" value="170" min="50" max="250">
       </div>
-      <div class="band-bar" id="bandBar">
-        <div class="arrow" id="bmiArrow">▼</div>
+      
+      <div class="input-group">
+        <label for="weight">体重 (kg)</label>
+        <input type="number" id="weight" value="60" min="10" max="300">
       </div>
-      <div class="band-values">
-        <span>0</span><span>18.5</span><span>24.9</span><span>29.9</span><span>40+</span>
+      
+      <button id="calculateBtn">计算 BMI</button>
+      
+      <div class="result-container">
+        <div class="bmi-value" id="bmiValue">--</div>
+        <div class="bmi-category" id="bmiCategory">请输入数据</div>
+        <div class="health-advice" id="healthAdvice"></div>
+      </div>
+      
+      <div class="bmi-band">
+        <div class="band-labels">
+          <span>偏瘦</span><span>正常</span><span>超重</span><span>肥胖</span>
+        </div>
+        <div class="band-bar">
+          <div class="indicator" id="bmiIndicator"></div>
+        </div>
+        <div class="band-values">
+          <span>0</span><span>18.5</span><span>25</span><span>30</span><span>40+</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="info-card">
+      <h3>BMI 健康标准</h3>
+      <div class="bmi-categories">
+        <div><span class="category-dot underweight"></span> 偏瘦: &lt;18.5</div>
+        <div><span class="category-dot normal"></span> 正常: 18.5-24.9</div>
+        <div><span class="category-dot overweight"></span> 超重: 25-29.9</div>
+        <div><span class="category-dot obese"></span> 肥胖: ≥30</div>
       </div>
     </div>
   </div>

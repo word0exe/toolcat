@@ -1,3 +1,120 @@
-body { font-family: sans-serif; padding: 2rem; text-align: center; background: #ffe; }
-input, button { margin: 0.5rem; padding: 0.5rem; }
-#result { margin-top: 1rem; font-weight: bold; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #c9d6df 0%, #f0f5f9 100%);
+    padding: 20px;
+  }
+  
+  .calculator-title {
+    color: #1e2022;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .calculator {
+    width: 100%;
+    max-width: 320px;
+    background: #1e2022;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  .display {
+    padding: 20px;
+    background: #1e2022;
+    text-align: right;
+  }
+  
+  #expression {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: transparent;
+    color: #f0f5f9;
+    font-size: 1.8rem;
+    text-align: right;
+    outline: none;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+  
+  #result {
+    color: #c9d6df;
+    font-size: 1.5rem;
+    min-height: 30px;
+    height: 35px;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 15px;
+    background: #1e2022;
+  }
+  
+  .btn {
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .num-btn {
+    background: #52616b;
+    color: #f0f5f9;
+  }
+  
+  .num-btn:hover {
+    background: #5e6e7a;
+  }
+  
+  .op-btn {
+    background: #2a2d31;
+    color: #c9d6df;
+  }
+  
+  .op-btn:hover {
+    background: #3c4046;
+  }
+  
+  .equal-btn {
+    background: #3a7bd5;
+    color: white;
+  }
+  
+  .equal-btn:hover {
+    background: #4a8be5;
+  }
+  
+  .clear-btn {
+    background: #d35454;
+    color: white;
+  }
+  
+  .clear-btn:hover {
+    background: #e36464;
+  }

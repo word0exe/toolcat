@@ -1,54 +1,223 @@
+:root {
+  --dark-1: #1e2022;      /* 深色主色调 */
+  --dark-2: #52616b;      /* 深色辅助色 */
+  --light-1: #c9d6df;     /* 浅色主色调 */
+  --light-2: #f0f5f9;     /* 浅色背景色 */
+  --accent: #3a7bd5;      /* 强调色 */
+  --underweight: #4da6ff; /* 偏瘦色 */
+  --normal: #4cd97b;      /* 正常色 */
+  --overweight: #ffcc00;  /* 超重色 */
+  --obese: #ff6b6b;       /* 肥胖色 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: sans-serif;
-  padding: 2rem;
+  font-family: 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--light-1) 0%, var(--light-2) 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: var(--dark-1);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
   text-align: center;
-  background: #f5f5f5;
+  color: var(--dark-1);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
-.bmi-form {
-  background: white;
-  display: inline-block;
-  padding: 2rem;
+.calculator-card, .info-card {
+  background: var(--light-2);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--light-1);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--dark-2);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--light-1);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  background: white;
+  transition: border-color 0.3s;
 }
 
-input {
-  padding: 0.5rem;
-  margin: 0.5rem;
+.input-group input:focus {
+  outline: none;
+  border-color: var(--dark-2);
+  box-shadow: 0 0 0 3px rgba(82, 97, 107, 0.2);
 }
 
 button {
-  padding: 0.5rem 1rem;
-  margin: 1rem;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--dark-1);
+  color: var(--light-2);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px 0 20px;
+}
+
+button:hover {
+  background-color: var(--dark-2);
+}
+
+.result-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.bmi-value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--dark-1);
+  margin-bottom: 5px;
+}
+
+.bmi-category {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.health-advice {
+  font-size: 1.1rem;
+  color: var(--dark-2);
+  min-height: 24px;
 }
 
 .bmi-band {
-  margin-top: 2rem;
+  margin-top: 30px;
 }
 
 .band-bar {
   position: relative;
   height: 30px;
-  background: linear-gradient(to right, #88f, #8f8, #ff8, #f88);
-  border-radius: 5px;
-  margin: 0.5rem auto;
-  width: 400px;
+  background: linear-gradient(to right, 
+    var(--underweight), 
+    var(--normal) 46.25%,   /* 18.5 的位置 */
+    var(--overweight) 62.5%, /* 25 的位置 */
+    var(--obese) 75%        /* 30 的位置 */
+  );
+  border-radius: 15px;
+  margin: 10px auto 5px;
 }
 
 .band-labels, .band-values {
-  display: flex;
-  justify-content: space-between;
-  width: 400px;
-  margin: auto;
   font-size: 0.9rem;
+  color: var(--dark-2);
+  position: relative; /* 为绝对定位提供参考 */
+  height: 20px;       /* 确保标签可见 */
 }
 
-.arrow {
+/* 文字标签（偏瘦、正常、超重、肥胖） */
+.band-labels span {
   position: absolute;
-  top: -20px;
-  font-size: 20px;
-  color: #333;
-  transition: left 0.5s ease-out;
+  transform: translateX(-50%); /* 水平居中 */
+}
+.band-labels span:nth-child(1) { left: 23.125%; } /* 偏瘦中心 */
+.band-labels span:nth-child(2) { left: 54.375%; } /* 正常中心 */
+.band-labels span:nth-child(3) { left: 68.75%; }  /* 超重中心 */
+.band-labels span:nth-child(4) { left: 87.5%; }   /* 肥胖中心 */
+
+/* 数值标签（0、18.5、25、30、40+） */
+.band-values span {
+  position: absolute;
+  transform: translateX(-50%); /* 水平居中 */
+}
+.band-values span:nth-child(1) { left: 0%; }      /* 0 */
+.band-values span:nth-child(2) { left: 46.25%; }  /* 18.5 */
+.band-values span:nth-child(3) { left: 62.5%; }   /* 25 */
+.band-values span:nth-child(4) { left: 75%; }     /* 30 */
+.band-values span:nth-child(5) { left: 100%; }    /* 40+ */
+
+.indicator {
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  background: var(--dark-1);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: left 0.5s ease;
+}
+
+.info-card h3 {
+  margin-bottom: 15px;
+  color: var(--dark-1);
+}
+
+.bmi-categories > div {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+.category-dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.underweight { background: var(--underweight); }
+.normal { background: var(--normal); }
+.overweight { background: var(--overweight); }
+.obese { background: var(--obese); }
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .calculator-card, .info-card {
+    padding: 20px;
+  }
+  
+  .bmi-value {
+    font-size: 2.8rem;
+  }
+}
+
+/* 添加指示器动画效果 */
+.bmi-animate {
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
