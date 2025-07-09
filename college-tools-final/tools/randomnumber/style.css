@@ -1,109 +1,156 @@
+:root {
+  --dark: #1e2022;
+  --gray: #52616b;
+  --light: #c9d6df;
+  --bg: #f0f5f9;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 6px 18px rgba(30, 32, 34, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  margin: 0;
-  color: #333;
+  padding: 20px;
 }
 
 .generator {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  width: 380px;
-  text-align: center;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
 }
 
-.generator h2 {
-  color: #2c3e50;
-  margin-bottom: 5px;
+h2 {
+  text-align: center;
+  color: var(--dark);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  color: #7f8c8d;
-  margin-top: 0;
-  margin-bottom: 25px;
-  font-size: 14px;
+  text-align: center;
+  color: var(--gray);
+  font-size: 1rem;
+  margin-bottom: 1.8rem;
+  font-weight: 400;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.generator input {
+input {
   width: 100%;
-  padding: 12px 15px;
-  margin: 8px 0;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  transition: border 0.3s;
-  box-sizing: border-box;
+  padding: 1rem 1.4rem;
+  border: 2px solid var(--light);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  background: rgba(240, 245, 249, 0.4);
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
 }
 
-.generator input:focus {
-  border-color: #3498db;
+input:focus {
+  border-color: var(--gray);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  background: white;
+  box-shadow: 0 3px 8px rgba(82, 97, 107, 0.12);
 }
 
 .generate-btn {
-  width: 100%;
-  padding: 14px;
-  margin-top: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #3498db;
+  background-color: var(--dark);
   color: white;
   border: none;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 6px rgba(30, 32, 34, 0.1);
 }
 
 .generate-btn:hover {
-  background-color: #2980b9;
+  background-color: var(--gray);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(82, 97, 107, 0.18);
 }
 
 .results-container {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 6px;
-  background-color: #f8f9fa;
-  border: 1px solid #eee;
+  margin-top: 1.8rem;
+  padding: 1.5rem;
+  background-color: rgba(240, 245, 249, 0.4);
+  border-radius: var(--radius-md);
+  display: none;
 }
 
 #results {
-  font-size: 16px;
-  word-break: break-word;
+  font-size: 1.1rem;
   line-height: 1.8;
-  padding: 10px;
+  padding: 1.2rem;
   background: white;
-  border-radius: 4px;
-  min-height: 20px;
+  border-radius: var(--radius-sm);
+  word-break: break-all;
+  font-family: monospace;
+  margin-bottom: 1.2rem;
+  color: var(--dark);
+  max-height: 300px;
+  overflow-y: auto;
+  border: 2px solid var(--light);
 }
 
 #copy-btn {
-  width: 100%;
-  padding: 10px;
-  margin-top: 15px;
-  font-size: 14px;
+  background-color: white;
+  color: var(--dark);
+  border: 2px solid var(--light);
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+  transition: all 0.25s ease;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
 }
 
-#copy-btn:hover {
-  background-color: #27ae60;
+#copy-btn:hover:not(:disabled) {
+  background-color: var(--bg);
+  border-color: var(--gray);
 }
 
 #copy-btn:disabled {
-  background-color: #95a5a6;
+  opacity: 0.7;
   cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .generator {
+    padding: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
 }

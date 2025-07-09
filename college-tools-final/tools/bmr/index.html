@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基础代谢率计算器</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,8 +14,8 @@
         <div class="input-group">
             <label for="gender">性别</label>
             <div class="gender-group">
-                <div class="gender-option" data-value="male">男</div>
                 <div class="gender-option selected" data-value="female">女</div>
+                <div class="gender-option" data-value="male">男</div>
             </div>
             <input type="hidden" id="gender" value="female">
         </div>
@@ -36,7 +35,7 @@
             <input type="number" id="weight" min="30" max="300" value="60">
         </div>
         
-        <div class="input-group activity-group">
+        <div class="input-group">
             <label for="activity">日常活动量</label>
             <select id="activity">
                 <option value="1.2">很少或没有运动</option>
@@ -65,5 +64,7 @@
             基础代谢率是指您在休息状态下燃烧的卡路里数量
         </div>
     </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
