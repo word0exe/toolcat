@@ -1,104 +1,171 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
-
-body {
-  font-family: 'Noto Sans SC', sans-serif;
-  background: linear-gradient(135deg, #d9c9ff, #f3e6ff);
-  animation: gradientMove 20s ease infinite;
-  margin: 0;
-  padding: 40px;
+:root {
+  --dark: #1e2022;
+  --gray: #52616b;
+  --light: #c9d6df;
+  --bg: #f0f5f9;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 6px 18px rgba(30, 32, 34, 0.08);
 }
 
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .container {
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
 }
 
 .converter {
   background: white;
-  padding: 40px;
-  border-radius: 24px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-  width: 360px;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 420px;
 }
 
 .converter h2 {
   text-align: center;
-  margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  color: var(--dark);
 }
 
 .converter input,
 .converter select,
 .converter button {
   width: 100%;
-  margin-bottom: 14px;
-  padding: 12px;
-  font-size: 16px;
+  margin-bottom: 1rem;
+  padding: 1rem 1.4rem;
+  font-size: 1rem;
+  border: 2px solid var(--light);
+  border-radius: var(--radius-md);
+  background: rgba(240, 245, 249, 0.4);
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.converter input:focus,
+.converter select:focus {
+  outline: none;
+  border-color: var(--gray);
+  background: white;
+  box-shadow: 0 3px 8px rgba(82, 97, 107, 0.12);
 }
 
 .converter button {
-  background-color: #7d29cc;
+  background-color: var(--dark);
   color: white;
   border: none;
-  border-radius: 10px;
+  font-weight: 500;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 6px rgba(30, 32, 34, 0.1);
+  margin-top: 0.5rem;
 }
 
 .converter button:hover {
-  transform: scale(1.04);
-  background-color: #5e1f9e;
-}
-
-.converter select {
-  transition: transform 0.2s ease;
-}
-
-.converter select:hover {
-  transform: scale(1.02);
+  background-color: var(--gray);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(82, 97, 107, 0.18);
 }
 
 .result {
   text-align: center;
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(240, 245, 249, 0.4);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--light);
 }
 
 .flag-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .flag {
-  width: 28px;
-  height: 20px;
+  width: 32px;
+  height: 24px;
   object-fit: cover;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light);
+  border-radius: var(--radius-sm);
 }
 
 .chart-container {
-  min-width: 480px;
+  background: white;
+  padding: 1.8rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
   flex: 1;
+  min-width: 500px;
+  max-width: 700px;
 }
 
 .footer {
   text-align: center;
-  margin-top: 60px;
-  padding: 20px;
-  color: #888;
-  font-size: 16px;
-  font-weight: 500;
-  border-top: 1px solid #ccc;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
+  margin-top: auto;
+  padding: 1.5rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--light);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .converter {
+    max-width: 100%;
+  }
+  
+  .chart-container {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .converter {
+    padding: 1.8rem;
+  }
+  
+  .chart-container {
+    padding: 1.2rem;
+  }
+  
+  .converter h2 {
+    font-size: 1.6rem;
+  }
 }
