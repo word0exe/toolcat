@@ -1,10 +1,9 @@
-/* 背景渐变动画 */
+/* Fondo estático en el orden correcto */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #f3e7ff, #e1d5fb, #f6e6ff);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+   background-color: #f0f5f9; /* fondo suave claro */
+  color: #1e2022;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,16 +11,9 @@ body {
   flex-direction: column;
 }
 
-/* 渐变动画关键帧 */
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 卡片容器样式 */
+/* Contenedor */
 .converter-container {
-  background: white;
+  background: #c9d6df;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 40px;
@@ -30,7 +22,7 @@ body {
   max-width: 500px;
 }
 
-/* 元素样式 */
+/* Etiquetas, selectores e inputs */
 label, select, input {
   display: block;
   margin: 15px auto;
@@ -39,13 +31,13 @@ label, select, input {
   max-width: 400px;
 }
 
-/* 按钮样式 */
+/* Botón */
 button {
-  background: linear-gradient(to right, #d946ef, #9333ea);
+  background-color: #52616b;
+  color: white;
   border: none;
   border-radius: 10px;
   padding: 10px 30px;
-  color: white;
   font-size: 1.1rem;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -53,17 +45,17 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(68, 59, 76, 0.3);
 }
 
-/* 结果输出 */
+/* Resultado */
 #result {
   margin-top: 20px;
   font-size: 1.3rem;
   font-weight: bold;
 }
 
-/* 页脚样式 */
+/* Pie de página */
 footer {
   margin-top: 40px;
   color: #666;

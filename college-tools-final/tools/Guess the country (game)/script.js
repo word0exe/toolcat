@@ -286,10 +286,10 @@ function showNextFlag() {
     btn.onclick = () => {
       if (name === current.name) {
         score++;
-        feedbackBox.innerText = "✅ 正确！";
+        feedbackBox.innerText = "正确！";
       } else {
         incorrect++;
-        feedbackBox.innerText = `❌ 错了！正确答案是: ${current.name}`;
+        feedbackBox.innerText = ` 错了！正确答案是: ${current.name}`;
       }
       currentIndex++;
       updateCounter();
@@ -303,7 +303,11 @@ function endGame() {
   flagContainer.style.display = "none";
   resultBox.style.display = "block";
   feedbackBox.innerText = "";
-  resultBox.innerHTML = `🎉 游戏结束！<br>✅ 正确：${score} ❌ 错误：${incorrect} ❓ 未答：${totalFlags - currentIndex}`;
+  resultBox.innerHTML = `游戏结束！<br>
+  <i class="fa-solid fa-circle-check" style="color:rgb(53, 56, 53);"></i> 正确：${score}
+<i class="fa-solid fa-circle-xmark" style="color: rgb(53, 56, 53); margin-left: 10px;"></i> 错误：${incorrect}  
+<i class="fa-solid fa-circle-question" style="color: rgb(53, 56, 53); margin-left: 10px;"></i> 未答：${totalFlags - currentIndex}
+  `;
   restartBtn.style.display = "inline-block";
   quitBtn.style.display = "none";
 }

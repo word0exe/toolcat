@@ -1,16 +1,16 @@
 body {
   margin: 0;
   font-family: "Helvetica Neue", sans-serif;
-  background: linear-gradient(to right, #d4f1f4, #eae6f2);
+  background: #f0f5f9; /* fondo claro */
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  color: #333;
+  color: #1e2022; /* texto */
 }
 
 .container {
-  background: white;
+  background: #c9d6df; /* contenedor gris claro */
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -20,13 +20,13 @@ body {
 }
 
 h1 {
-  color: #6b46c1;
+  color: #1e2022;
   margin-bottom: 1.5rem;
 }
 
 button {
   padding: 0.6rem 1.2rem;
-  background-color: #8a4fff;
+  background-color: #52616b; /* botón gris oscuro */
   color: white;
   border: none;
   border-radius: 10px;
@@ -36,7 +36,7 @@ button {
 }
 
 button:hover {
-  background-color: #6b3dd1;
+  background-color: #1e2022;
 }
 
 .flag-area {
@@ -60,23 +60,24 @@ button:hover {
 
 .options-box button {
   margin: 0.5rem;
-  background-color: #eee;
-  color: #333;
-  border: 1px solid #ccc;
+  background-color: #f0f5f9;
+  color: #1e2022;
+  border: 1px solid #52616b;
 }
 
 .options-box button:hover {
-  background-color: #d6d6f5;
+  background-color: #c9d6df;
 }
 
 .result-area {
   margin-top: 1.5rem;
   font-weight: bold;
   font-size: 1.2rem;
+  color: #1e2022;
 }
 
 footer {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #52616b;
 }
