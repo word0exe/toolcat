@@ -1,38 +1,185 @@
 body {
-    font-family: sans-serif;
-    background: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-  }
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  transition: background-color 0.4s ease;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(30, 32, 34, 0.1);
+  width: 400px;
+  text-align: center;
+  border: 1px solid #c9d6df;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(30, 32, 34, 0.15);
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #1e2022, #52616b);
+}
+
+h2 {
+  color: #1e2022;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #52616b, transparent);
+  transition: all 0.3s ease;
+}
+
+h2:hover::after {
+  left: 15%;
+  right: 15%;
+}
+
+label {
+  display: block;
+  text-align: left;
+  color: #52616b;
+  font-weight: 500;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+input[type="color"] {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #c9d6df;
+  border-radius: 20%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(30, 32, 34, 0.1);
+  overflow: hidden;
+}
+
+input[type="color"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(30, 32, 34, 0.15);
+}
+
+.inputs {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inputs input[type="text"],
+.inputs input[type="number"] {
+  padding: 12px 15px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #c9d6df;
+  border-radius: 8px;
+  background: #fcfcfc;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-sizing: border-box;
+}
+
+.inputs input[type="text"]:focus,
+.inputs input[type="number"]:focus {
+  outline: none;
+  border-color: #1e2022;
+  box-shadow: 0 0 0 3px rgba(30, 32, 34, 0.1);
+  background: white;
+}
+
+.inputs input[type="text"]:hover,
+.inputs input[type="number"]:hover {
+  border-color: #52616b;
+}
+
+/* RGB inputs container */
+.inputs div {
+  display: flex;
+  gap: 10px;
+}
+
+.inputs div input[type="number"] {
+  flex: 1;
+  text-align: center;
+}
+
+.preview {
+  margin-top: 25px;
+  padding: 30px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #c9d6df;
+  color: #1e2022;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 0 10px rgba(30, 32, 34, 0.05);
+  text-shadow: white 0 0 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.7s;
+}
+
+.preview:hover::before {
+  left: 100%;
+}
+
+/* Color transition animation */
+@keyframes colorPulse {
+  0% { box-shadow: 0 0 0 0 rgba(82, 97, 107, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(82, 97, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(82, 97, 107, 0); }
+}
+
+.color-change {
+  animation: colorPulse 1s;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
   .container {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 400px;
-    text-align: center;
-  }
-  
-  .inputs {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .inputs input[type="text"],
-  .inputs input[type="number"] {
-    padding: 8px;
-    font-size: 16px;
-    width: 94%;
-  }
-  
-  .preview {
-    margin-top: 20px;
+    width: 90%;
     padding: 20px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
   }
+  
+  input[type="color"] {
+    width: 50px;
+    height: 50px;
+  }
+}

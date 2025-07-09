@@ -1,13 +1,13 @@
-/* styles.css */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #ffeef2 0%, #e2f0ff 100%);
+  background-color: #f0f5f9;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   padding: 20px;
+  transition: background-color 0.4s ease;
 }
 
 .container {
@@ -15,11 +15,17 @@ body {
   padding: 35px;
   width: 350px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f0f0f0;
+  box-shadow: 0 10px 25px rgba(30, 32, 34, 0.1);
+  border: 1px solid #c9d6df;
   text-align: center;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(30, 32, 34, 0.15);
 }
 
 .container::before {
@@ -29,12 +35,12 @@ body {
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(to right, #d6336c, #e2f0ff);
+  background: linear-gradient(to right, #1e2022, #52616b);
 }
 
 h1 {
   margin-bottom: 25px;
-  color: #d6336c;
+  color: #1e2022;
   position: relative;
   display: inline-block;
   padding-bottom: 8px;
@@ -47,43 +53,51 @@ h1::after {
   left: 25%;
   right: 25%;
   height: 2px;
-  background: linear-gradient(to right, transparent, #f3c6d3, transparent);
+  background: linear-gradient(to right, transparent, #52616b, transparent);
+  transition: all 0.3s ease;
+}
+
+h1:hover::after {
+  left: 15%;
+  right: 15%;
 }
 
 label {
   display: block;
   margin-top: 18px;
   text-align: left;
-  color: #555;
+  color: #52616b;
   font-weight: 500;
   font-size: 15px;
+  transition: color 0.3s ease;
 }
 
 input, select {
   width: 100%;
   padding: 12px 15px;
   margin-top: 8px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #c9d6df;
   border-radius: 8px;
   box-sizing: border-box;
   font-size: 15px;
   background: #fcfcfc;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 input:focus, select:focus {
   outline: none;
-  border-color: #d6336c;
-  box-shadow: 0 0 0 3px rgba(214, 51, 108, 0.15);
+  border-color: #1e2022;
+  box-shadow: 0 0 0 3px rgba(30, 32, 34, 0.15);
+  background-color: #fff;
 }
 
 input:hover, select:hover {
-  border-color: #c0c0c0;
+  border-color: #52616b;
 }
 
 select {
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2352616b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 16px;
@@ -93,15 +107,15 @@ button {
   margin-top: 25px;
   width: 100%;
   padding: 13px;
-  background: linear-gradient(to right, #d6336c, #c2255a);
+  background: linear-gradient(to right, #1e2022, #52616b);
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(214, 51, 108, 0.25);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 32, 34, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   overflow: hidden;
 }
@@ -113,13 +127,13 @@ button::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: all 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.7s;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(214, 51, 108, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 32, 34, 0.3);
 }
 
 button:hover::before {
@@ -128,6 +142,37 @@ button:hover::before {
 
 button:active {
   transform: translateY(0);
+  background: linear-gradient(to right, #52616b, #1e2022);
+}
+
+/* 添加按钮点击涟漪效果 */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+button:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
 }
 
 #result {
@@ -135,10 +180,30 @@ button:active {
   padding: 15px;
   font-weight: bold;
   font-size: 17px;
-  color: #333;
-  background: #f8f9fa;
+  color: #1e2022;
+  background: #f0f5f9;
   border-radius: 8px;
-  border-left: 4px solid #d6336c;
+  border-left: 4px solid #52616b;
   text-align: center;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: inset 0 1px 3px rgba(30, 32, 34, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 25px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
 }
