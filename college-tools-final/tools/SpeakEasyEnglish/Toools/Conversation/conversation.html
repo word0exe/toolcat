@@ -19,7 +19,7 @@
     <nav>
       <a href="../../index.html" class="nav-btn">首页</a>
       <a href="../Idioms/idioms.html" class="nav-btn">习语学习</a>
-      <a href="../Progress/progress.html" class="nav-btn">学习进度</a>
+      <a href="../Conversation/conversation.html" class="nav-btn active">对话练习</a>
       <a href="../Pronunciation/pronunciation.html" class="nav-btn">发音练习</a>
     </nav>
   </header>
@@ -47,6 +47,9 @@
       <div class="button-group">
         <button class="action-button" id="startBtn" onclick="startListening()">
           <i class="fa-solid fa-microphone"></i> 开始说话
+        </button>
+        <button class="action-button" id="stopBtn" onclick="stopListening()" style="display: none;">
+          <i class="fa-solid fa-stop"></i> 停止说话
         </button>
         <button class="action-button" id="switchRoleBtn" onclick="switchRole()">
           <i class="fa-solid fa-exchange"></i> 切换角色

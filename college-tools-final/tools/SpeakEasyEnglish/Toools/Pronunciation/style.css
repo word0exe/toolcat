@@ -285,29 +285,28 @@ nav {
   margin-top: 1rem;
 }
 
-/* 页脚样式 */
+/* 页脚 */
 footer {
+  background-color: #1e2022;
+  color: #f0f5f9;
   text-align: center;
-  padding: 1.5rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  color: #52616b;
-  font-size: 0.9rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
 }
 
 footer p {
-  margin: 0.3rem 0;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
 }
 
 footer a {
-  color: #52616b;
+  color: #c9d6df;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 footer a:hover {
-  color: #1e2022;
-  text-decoration: underline;
+  color: #f0f5f9;
 }
 
 /* 响应式设计 */
