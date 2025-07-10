@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f0f5f9; /* Light pastel background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #52616b; /* Dark gray text */
+}
+
+.container {
+  text-align: center;
+  background: #ffffffcc;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  animation: fadeIn 1.2s ease;
+  background-color: #ffffff;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #1e2022; /* Dark background color for header */
+}
+
+input[type="date"] {
+  padding: 10px;
+  border: 2px solid #c9d6df; /* Light gray border */
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #52616b; /* Darker gray for button */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #1e2022; /* Dark background on hover */
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 18px;
+  padding: 20px;
+  background: #c9d6df; /* Light gray result box */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: slideUp 0.7s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
