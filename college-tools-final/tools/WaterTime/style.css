@@ -1,0 +1,228 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f9f4;
+    color: #2d3436;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 2px solid #2ecc71;
+}
+
+header h1 {
+    color: #27ae60;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Cartes générales */
+.card, .welcome-card, .notification-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.welcome-card {
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.welcome-card h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.welcome-card p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #34495e;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #1e2022;
+}
+
+button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #219653;
+}
+
+/* Section tracker */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-item p:first-child {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Plante virtuelle */
+.plant-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.plant-visual {
+    width: 180px;
+    height: 220px;
+    margin: 0 auto 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 1s ease;
+}
+
+.plant-stage-0 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><circle cx="50" cy="120" r="15" fill="#8B4513"/><line x1="50" y1="105" x2="50" y2="80" stroke="#228B22" stroke-width="4"/></svg>');
+}
+
+.plant-stage-1 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><circle cx="50" cy="120" r="15" fill="#8B4513"/><line x1="50" y1="105" x2="50" y2="70" stroke="#228B22" stroke-width="4"/><path d="M50 85 Q65 75 60 60" stroke="#228B22" stroke-width="3" fill="none"/></svg>');
+}
+
+.plant-stage-2 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><circle cx="50" cy="120" r="15" fill="#8B4513"/><line x1="50" y1="105" x2="50" y2="60" stroke="#228B22" stroke-width="4"/><path d="M50 80 Q70 65 65 45" stroke="#228B22" stroke-width="3" fill="none"/><path d="M50 80 Q30 65 35 45" stroke="#228B22" stroke-width="3" fill="none"/></svg>');
+}
+
+.plant-stage-3 {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><circle cx="50" cy="120" r="15" fill="#8B4513"/><line x1="50" y1="105" x2="50" y2="50" stroke="#228B22" stroke-width="4"/><path d="M50 70 Q80 55 75 30" stroke="#228B22" stroke-width="3" fill="none"/><path d="M50 70 Q20 55 25 30" stroke="#228B22" stroke-width="3" fill="none"/><circle cx="75" cy="30" r="6" fill="#e74c3c"/><circle cx="25" cy="30" r="6" fill="#e74c3c"/></svg>');
+}
+
+#plant-message {
+    color: #34495e;
+    font-style: italic;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#add-water {
+    background-color: #52616b;
+}
+
+#add-water:hover {
+    background-color: #52616b;
+}
+
+#reset-day {
+    background-color: #c9d6df;
+}
+
+#reset-day:hover {
+    background-color: #c9d6df;
+}
+
+.notification-card {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.notification-card p {
+    color: #856404;
+    margin-bottom: 15px;
+}
+
+.notification-card button {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.notification-card button:hover {
+    background-color: #e0a800;
+}
+
+/* Classes utilitaires */
+.hidden {
+    display: none;
+}
+
+/* Responsivité */
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}

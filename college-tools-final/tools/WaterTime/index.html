@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterTime - 个性化 hydration 提醒</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%234CAF50' d='M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z'/></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>💧 WaterTime</h1>
+            <p>您的个性化 hydration 伴侣</p>
+        </header>
+
+        <!-- 欢迎部分 -->
+        <section id="welcome-section">
+            <div class="welcome-card">
+                <h2>开始您的 hydration 追踪！</h2>
+                <p>75% 的人饮水量不足。我们将计算您的个性化需求，帮助您达成目标。</p>
+                <button id="start-btn">开始！</button>
+            </div>
+        </section>
+
+        <!-- 配置表单 -->
+        <section id="config-section" class="hidden">
+            <div class="card">
+                <h2>您的信息</h2>
+                <form id="config-form">
+                    <div class="form-group">
+                        <label for="weight">体重 (公斤)</label>
+                        <input type="number" id="weight" min="20" max="300" placeholder="例如：70" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="activity">体力活动水平</label>
+                        <select id="activity" required>
+                            <option value="">-- 请选择 --</option>
+                            <option value="low">低 (很少或不运动)</option>
+                            <option value="medium">中 (轻度运动 2-3 次/周)</option>
+                            <option value="high">高 (高强度运动 4-5 次/周)</option>
+                            <option value="extreme">极高 (每日高强度训练)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reminder-interval">提醒间隔 (小时)</label>
+                        <input type="number" id="reminder-interval" min="1" max="6" value="2" required>
+                    </div>
+                    
+                    <button type="submit">确认</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 追踪部分 -->
+        <section id="tracker-section" class="hidden">
+            <div class="card">
+                <h2>您的 hydration 追踪</h2>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <p>每日目标</p>
+                        <p class="stat-value" id="daily-goal">0 ml</p>
+                    </div>
+                    <div class="stat-item">
+                        <p>今日已饮</p>
+                        <p class="stat-value" id="consumed-amount">0 ml</p>
+                    </div>
+                    <div class="stat-item">
+                        <p>完成进度</p>
+                        <p class="stat-value" id="progress-percent">0%</p>
+                    </div>
+                </div>
+
+                <!-- 虚拟植物 -->
+                <div class="plant-section">
+                    <h3>您的植物 🌱</h3>
+                    <div class="plant-visual" id="plant-visual"></div>
+                    <p id="plant-message">浇水让它茁壮成长！</p>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="add-water">我喝水了</button>
+                    <button id="reset-day">重置今日记录</button>
+                </div>
+            </div>
+
+            <!-- 通知设置 -->
+            <div class="notification-card hidden" id="notification-card">
+                <p>🔔 启用通知以接收提醒</p>
+                <button id="enable-notifications">启用通知</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
