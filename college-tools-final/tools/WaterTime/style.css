@@ -11,7 +11,6 @@ body {
     color: #2d3436;
     min-height: 100vh;
     padding: 20px;
-    line-height: 1.6;
 }
 
 .app-container {
@@ -44,11 +43,6 @@ header p {
     padding: 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     margin-bottom: 25px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover, .welcome-card:hover {
-    transform: translateY(-3px);
 }
 
 .welcome-card {
@@ -59,7 +53,6 @@ header p {
 .welcome-card h2 {
     color: #2c3e50;
     margin-bottom: 15px;
-    font-size: 1.8rem;
 }
 
 .welcome-card p {
@@ -86,17 +79,16 @@ input, select {
     border: 1px solid #bdc3c7;
     border-radius: 6px;
     font-size: 1rem;
-    transition: border 0.3s, box-shadow 0.3s;
+    transition: border 0.3s;
 }
 
 input:focus, select:focus {
     outline: none;
-    border-color: #52616b;
-    box-shadow: 0 0 0 3px rgba(82, 97, 107, 0.1);
+    border-color: #1e2022;
 }
 
 button {
-    background-color: #52616b;
+    background-color: #1e2022;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -104,15 +96,12 @@ button {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s;
+    width: 100%;
 }
 
 button:hover {
-    background-color: #1e2022;
-}
-
-button:active {
-    transform: scale(0.98);
+    background-color: #52616b;
 }
 
 /* Section tracker */
@@ -128,11 +117,6 @@ button:active {
     padding: 15px;
     border-radius: 8px;
     text-align: center;
-    transition: transform 0.3s;
-}
-
-.stat-item:hover {
-    transform: translateY(-3px);
 }
 
 .stat-item p:first-child {
@@ -160,7 +144,6 @@ button:active {
     background-repeat: no-repeat;
     background-position: center;
     transition: all 1s ease;
-    background-color: rgba(240, 248, 255, 0.5); /* 半透明背景，便于调试 */
 }
 
 .plant-stage-0 {
@@ -182,7 +165,6 @@ button:active {
 #plant-message {
     color: #34495e;
     font-style: italic;
-    font-size: 1.05rem;
 }
 
 .action-buttons {
@@ -192,83 +174,56 @@ button:active {
 }
 
 #add-water {
-    background-color: #52616b;/* Utilisation de la couleur gris bleuté */
-    flex: 2;
+    background-color: #52616b;
 }
 
 #add-water:hover {
-    background-color: #1e2022;/* Utilisation de la couleur noir/gris foncé au survol */
+    background-color: #52616b;
 }
 
 #reset-day {
-    background-color: #c9d6df;/* Utilisation de la couleur gris clair */
-    flex: 1;
+    background-color: #c9d6df;
+    color: #1e2022;
 }
 
 #reset-day:hover {
-    background-color: #1e2022;/* Utilisation de la couleur noir/gris foncé au survol */
+    background-color: #c9d6df;
 }
 
-#edit-settings {
-    background-color: #f0f5f9;/* Utilisation de la couleur blanc cassé */
-    color: #1e2022;/* Ajout de couleur de texte pour la lisibilité */
-    flex: 1.5;
+#reconfigure-btn {
+    background-color: #f0f5f9;
+    color: #1e2022;
 }
 
-#edit-settings:hover {
-    background-color: #1e2022;/* Utilisation de la couleur noir/gris foncé au survol */
-    color: #f0f5f9;/* Changement de couleur de texte au survol */
+#reconfigure-btn:hover {
+    background-color: #c9d6df;
 }
 
 .notification-card {
-    background-color: #f0f5f9;/* Utilisation de la couleur blanc cassé */
+    background-color: #fff3cd;
     padding: 15px;
     border-radius: 6px;
     text-align: center;
     margin-top: 20px;
-    border-left: 4px solid #52616b;/* Utilisation de la couleur gris bleuté pour la bordure */
 }
 
 .notification-card p {
-    color: #52616b;/* Utilisation de la couleur gris bleuté pour le texte */
+    color: #1e2022;
     margin-bottom: 15px;
 }
 
 .notification-card button {
-    background-color: #52616b;/* Utilisation de la couleur gris bleuté pour le bouton */
-    color: #f0f5f9;/* Utilisation de la couleur blanc cassé pour le texte du bouton */
+    background-color: #f0f5f9;
+    color: #212529;
 }
 
 .notification-card button:hover {
-    background-color: #1e2022;/* Utilisation de la couleur noir/gris foncé au survol */
-    color: #f0f5f9;/* Utilisation de la couleur blanc cassé pour le texte du bouton au survol */
+    background-color: #f0f5f9;
 }
+
 /* Classes utilitaires */
 .hidden {
     display: none;
-}
-
-/* Toast 消息 */
-.toast-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 100;
-    max-width: 80%;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.toast-message.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
 
 /* Responsivité */
@@ -279,18 +234,5 @@ button:active {
 
     .action-buttons {
         flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    .welcome-card {
-        padding: 25px 15px;
-    }
-    
-    .plant-visual {
-        width: 150px;
-        height: 180px;
     }
 }

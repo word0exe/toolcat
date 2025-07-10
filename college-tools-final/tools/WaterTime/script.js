@@ -1,13 +1,13 @@
 // 应用状态
 const appState = {
-    dailyGoal: 0,
-    consumed: 0,
-    interval: 2,
-    reminderTimer: null,
-    plantStage: 0,
-    lastReset: null,
-    activity: 'medium',
-    waterPortion: 200
+    dailyGoal: 0,         // 每日饮水目标
+    consumed: 0,          // 已饮水量
+    interval: 2,          // 提醒间隔
+    reminderTimer: null,  // 提醒计时器
+    plantStage: 0,        // 植物生长阶段
+    lastReset: null,      // 最后重置日期（用于每日自动重置）
+    weight: 0,            // 用户体重
+    activity: ''          // 活动水平
 };
 
 // DOM 元素
@@ -26,19 +26,15 @@ const elements = {
     resetBtn: document.getElementById('reset-day'),
     notificationCard: document.getElementById('notification-card'),
     enableNotificationsBtn: document.getElementById('enable-notifications'),
-    editSettingsBtn: document.getElementById('edit-settings'),
-    toastContainer: document.getElementById('toast-container')
+    reconfigureBtn: document.getElementById('reconfigure-btn') // 新增按钮
 };
 
 // 初始化应用
 function init() {
+    // 加载保存的数据（如果有）
     loadSavedData();
-    setupEventListeners();
-    checkNewDay();
-}
-
-// 配置所有事件监听
-function setupEventListeners() {
+    
+    // 事件监听
     elements.startBtn.addEventListener('click', () => {
         elements.welcomeSection.classList.add('hidden');
         elements.configSection.classList.remove('hidden');
@@ -48,99 +44,95 @@ function setupEventListeners() {
     elements.addWaterBtn.addEventListener('click', addWater);
     elements.resetBtn.addEventListener('click', resetDay);
     elements.enableNotificationsBtn.addEventListener('click', requestNotificationPermission);
-    elements.editSettingsBtn.addEventListener('click', editSettings);
+    elements.reconfigureBtn.addEventListener('click', showConfigSection); // 新增事件监听
+
+    // 检查是否为新的一天（自动重置）
+    checkNewDay();
 }
 
-// 处理表单提交
+// 显示配置页面
+function showConfigSection() {
+    // 停止现有提醒
+    if (appState.reminderTimer) {
+        clearInterval(appState.reminderTimer);
+        appState.reminderTimer = null;
+    }
+    
+    // 填充表单数据
+    document.getElementById('weight').value = appState.weight;
+    document.getElementById('activity').value = appState.activity;
+    document.getElementById('reminder-interval').value = appState.interval;
+    
+    // 切换到配置页面
+    elements.trackerSection.classList.add('hidden');
+    elements.configSection.classList.remove('hidden');
+}
+
+// 处理配置表单提交
 function handleFormSubmit(e) {
     e.preventDefault();
     
     const weight = parseInt(document.getElementById('weight').value);
     const activity = document.getElementById('activity').value;
     appState.interval = parseInt(document.getElementById('reminder-interval').value);
-    appState.activity = activity;
-    
-    // 计算每日目标
+
+    // 计算每日饮水目标（毫升）
+    // 基于通用推荐的系数（毫升/公斤）
     const activityFactors = {
-        low: 30,
-        medium: 35,
-        high: 40,
-        extreme: 45
+        low: 30,      // 低活动量：30ml/公斤/天
+        medium: 35,   // 中等活动量：35ml/公斤/天
+        high: 40,     // 高活动量：40ml/公斤/天
+        extreme: 45   // 极高活动量：45ml/公斤/天
     };
     
-    appState.dailyGoal = Math.round(weight * activityFactors[activity]);
-    
-    // 仅在首次设置或用户明确选择时重置饮水量
-    if (!appState.lastReset || confirm("是否同时重置今日饮水量？")) {
-        appState.consumed = 0;
-    }
-    
-    appState.lastReset = appState.lastReset || new Date().toDateString();
+    appState.dailyGoal = weight * activityFactors[activity];
+    appState.weight = weight;
+    appState.activity = activity;
+    appState.consumed = 0;
+    appState.plantStage = 0;
+    appState.lastReset = new Date().toDateString(); // 记录重置日期
 
+    // 保存数据
     saveData();
+
+    // 更新界面
     updateTrackerUI();
     
     // 切换到追踪页面
     elements.configSection.classList.add('hidden');
     elements.trackerSection.classList.remove('hidden');
 
+    // 启动提醒
     startReminders();
+
+    // 检查通知权限
     checkNotificationPermission();
-    
-    showToast(`设置已更新！每日目标: ${appState.dailyGoal}ml`);
 }
 
-// 编辑设置
-function editSettings() {
-    // 保存当前饮水量
-    const tempConsumed = appState.consumed;
-    
-    // 显示配置页面
-    elements.trackerSection.classList.add('hidden');
-    elements.configSection.classList.remove('hidden');
-    
-    // 填充当前值
-    document.getElementById('weight').value = Math.round(appState.dailyGoal / getActivityFactor(appState.activity));
-    document.getElementById('activity').value = appState.activity;
-    document.getElementById('reminder-interval').value = appState.interval;
-    
-    // 恢复饮水量
-    appState.consumed = tempConsumed;
-}
-
-// 获取活动系数
-function getActivityFactor(activityLevel) {
-    const factors = {
-        low: 30,
-        medium: 35,
-        high: 40,
-        extreme: 45
-    };
-    return factors[activityLevel] || 35;
-}
-
-// 更新界面追踪
+// 更新追踪界面
 function updateTrackerUI() {
+    // 显示统计数据
     elements.dailyGoal.textContent = `${appState.dailyGoal} ml`;
     elements.consumedAmount.textContent = `${appState.consumed} ml`;
     
+    // 计算进度
     const progress = Math.min(Math.round((appState.consumed / appState.dailyGoal) * 100), 100);
     elements.progressPercent.textContent = `${progress}%`;
 
+    // 更新虚拟植物
     updatePlant(progress);
 }
 
-// 更新植物状态
+// 根据进度更新植物外观
 function updatePlant(progress) {
-    // 重置所有类
+    // 移除所有阶段类
     elements.plantVisual.className = 'plant-visual';
     
-    // 设置新类
+    // 根据进度定义植物阶段
     if (progress >= 100) {
         appState.plantStage = 3;
         elements.plantVisual.classList.add('plant-stage-3');
         elements.plantMessage.textContent = "恭喜！您的植物已100%绽放 🌸";
-        if (progress === 100) showToast("🎉 太棒了！您已达成今日目标！");
     } else if (progress >= 70) {
         appState.plantStage = 2;
         elements.plantVisual.classList.add('plant-stage-2');
@@ -154,26 +146,23 @@ function updatePlant(progress) {
         elements.plantVisual.classList.add('plant-stage-0');
         elements.plantMessage.textContent = "您的植物很渴... 喝点水吧！";
     }
-    
-    console.log(`植物状态更新: 进度=${progress}% → 阶段=${appState.plantStage}`);
 }
 
-// 添加饮水量
+// 添加饮水量（默认200ml，可扩展为自定义选择）
 function addWater() {
-    // 随机选择常见饮水量（可改为自定义输入）
-    const portions = [100, 200, 300, 500];
-    const portion = portions[Math.floor(Math.random() * portions.length)];
-    
+    const portion = 200; // 每份200ml
     appState.consumed = Math.min(appState.consumed + portion, appState.dailyGoal);
     
+    // 保存数据
     saveData();
+    
+    // 更新界面
     updateTrackerUI();
-    showToast(`+${portion}ml 已添加！`);
 }
 
-// 重置每日记录
+// 重置今日记录
 function resetDay() {
-    if (confirm("确定要重置今日的饮水记录吗？这将清除今天的所有数据。")) {
+    if (confirm("确定要重置今日的饮水记录吗？")) {
         appState.consumed = 0;
         appState.lastReset = new Date().toDateString();
         saveData();
@@ -181,37 +170,43 @@ function resetDay() {
     }
 }
 
-// 启动提醒
+// 管理提醒（通知）
 function startReminders() {
-    if (appState.reminderTimer) clearInterval(appState.reminderTimer);
+    // 如有现有提醒，先停止
+    if (appState.reminderTimer) {
+        clearInterval(appState.reminderTimer);
+    }
 
+    // 将间隔转换为毫秒（小时 → 毫秒）
     const intervalMs = appState.interval * 60 * 60 * 1000;
-    
-    // 1分钟后发送第一个提醒
-    setTimeout(() => {
-        if (Notification.permission === 'granted') showNotification();
-    }, 60 * 1000);
 
+    // 立即发送第一个提醒
+    if (Notification.permission === 'granted') {
+        showNotification();
+    }
+
+    // 设置定期提醒
     appState.reminderTimer = setInterval(() => {
-        if (Notification.permission === 'granted') showNotification();
+        showNotification();
     }, intervalMs);
 }
 
 // 显示通知
 function showNotification() {
-    const progress = Math.round((appState.consumed / appState.dailyGoal) * 100);
+    if (Notification.permission !== 'granted') return;
+
     const title = "💧 该喝水了！";
-    const body = `今日已饮 ${appState.consumed}ml，目标 ${appState.dailyGoal}ml (${progress}%)`;
+    const body = `今日已饮水 ${appState.consumed} ml，目标 ${appState.dailyGoal} ml。`;
     
+    // 通知选项
     const options = {
-        body,
+        body: body,
         icon: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234CAF50" d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>',
-        vibrate: [200, 100, 200]
+        vibrate: [200, 100, 200] // 兼容设备的震动反馈
     };
 
-    if (Notification.permission === 'granted') {
-        new Notification(title, options);
-    }
+    // 显示通知
+    new Notification(title, options);
 }
 
 // 请求通知权限
@@ -220,9 +215,9 @@ function requestNotificationPermission() {
         Notification.requestPermission().then(permission => {
             if (permission === 'granted') {
                 elements.notificationCard.classList.add('hidden');
-                showToast("✅ 通知已启用");
+                showNotification(); // 发送确认通知
             } else {
-                showToast("❌ 通知已禁用。您可以在浏览器设置中重新启用。");
+                alert("通知已禁用。您可以在浏览器设置中重新启用。");
             }
         });
     }
@@ -231,10 +226,10 @@ function requestNotificationPermission() {
 // 检查通知权限
 function checkNotificationPermission() {
     if ('Notification' in window) {
-        if (Notification.permission !== 'granted' && Notification.permission !== 'denied') {
-            elements.notificationCard.classList.remove('hidden');
-        } else {
+        if (Notification.permission === 'denied') {
             elements.notificationCard.classList.add('hidden');
+        } else if (Notification.permission !== 'granted') {
+            elements.notificationCard.classList.remove('hidden');
         }
     }
 }
@@ -247,7 +242,8 @@ function saveData() {
         interval: appState.interval,
         plantStage: appState.plantStage,
         lastReset: appState.lastReset,
-        activity: appState.activity
+        weight: appState.weight,    // 保存体重
+        activity: appState.activity // 保存活动水平
     };
     localStorage.setItem('waterTimeData', JSON.stringify(dataToSave));
 }
@@ -257,22 +253,19 @@ function loadSavedData() {
     const savedData = localStorage.getItem('waterTimeData');
     if (savedData) {
         const parsedData = JSON.parse(savedData);
-        
-        // 恢复所有状态
         appState.dailyGoal = parsedData.dailyGoal;
         appState.consumed = parsedData.consumed;
         appState.interval = parsedData.interval;
         appState.plantStage = parsedData.plantStage;
         appState.lastReset = parsedData.lastReset;
-        appState.activity = parsedData.activity || 'medium';
-        
+        appState.weight = parsedData.weight || 0;        // 加载体重
+        appState.activity = parsedData.activity || '';   // 加载活动水平
+
         // 如果有数据，直接进入追踪页面
         if (appState.dailyGoal > 0) {
             elements.welcomeSection.classList.add('hidden');
             elements.configSection.classList.add('hidden');
             elements.trackerSection.classList.remove('hidden');
-            
-            // 强制更新UI和植物状态
             updateTrackerUI();
             startReminders();
             checkNotificationPermission();
@@ -288,34 +281,7 @@ function checkNewDay() {
         appState.lastReset = today;
         saveData();
         updateTrackerUI();
-        showToast("新的一天开始了！今日目标: " + appState.dailyGoal + "ml");
     }
-}
-
-// 显示提示消息
-function showToast(message) {
-    // 创建toast元素
-    const toast = document.createElement('div');
-    toast.className = 'toast-message';
-    toast.textContent = message;
-    
-    // 添加到容器
-    elements.toastContainer.appendChild(toast);
-    
-    // 显示动画
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 10);
-    
-    // 自动消失
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => {
-            if (elements.toastContainer.contains(toast)) {
-                elements.toastContainer.removeChild(toast);
-            }
-        }, 300);
-    }, 3000);
 }
 
 // 页面加载完成后启动应用
