@@ -5,14 +5,24 @@ $(document).ready(function () {
     const to = $('#toUnit').val();
 
     if (isNaN(value)) {
-      $('#result').text('Please enter a valid number.');
+      $('#result')
+        .html('请输入有效的数字。')
+        .addClass('show');
       return;
     }
 
     const celsius = toCelsius(value, from);
     const converted = fromCelsius(celsius, to);
-
-    $('#result').html(`${value}°${from} = <strong>${converted.toFixed(2)}°${to}</strong>`);
+    
+    // Add animation effect
+    $('#result')
+      .removeClass('show')
+      .html(`${value}°${from} = <strong>${converted.toFixed(2)}°${to}</strong>`);
+      
+    // Delay adding show class to trigger animation
+    setTimeout(function() {
+      $('#result').addClass('show');
+    }, 50);
   });
 
   function toCelsius(value, unit) {
