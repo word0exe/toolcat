@@ -1,0 +1,333 @@
+/* 通用样式重置与基础设置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+
+body {
+  background-color: #f0f5f9; /* 使用提供的浅色 */
+  color: #1e2022; /* 主要文字颜色 */
+  line-height: 1.6;
+}
+
+/* 头部样式 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1e2022; /* 深色文字 */
+}
+
+.logo p {
+  font-size: 0.8rem;
+  color: #52616b; /* 中灰色文字 */
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: #1e2022;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #c9d6df; /* 浅灰色 hover 背景 */
+}
+
+.nav-btn.active {
+  background-color: #52616b; /* 中灰色激活背景 */
+  color: #f0f5f9; /* 浅色文字 */
+}
+
+/* 主要内容区域样式 */
+.tools-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1e2022;
+}
+
+.page-header p {
+  color: #52616b;
+}
+
+/* 选项卡导航样式 */
+.tabs-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  background-color: #fff;
+  border: 1px solid #c9d6df; /* 浅灰色边框 */
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #1e2022;
+}
+
+.tab-button:hover {
+  background-color: #c9d6df;
+}
+
+.tab-button.active {
+  background-color: #52616b;
+  color: #f0f5f9;
+  border-color: #52616b;
+}
+
+/* 每个选项卡面板样式 */
+.tab-panel {
+  display: none;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-panel h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1e2022;
+}
+
+.tab-panel p.intro {
+  color: #52616b;
+  margin-bottom: 1.5rem;
+}
+
+/* 随机单词、输入表单等容器样式 */
+.random-container,
+.custom-input-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.current-word,
+.current-sentence {
+  padding: 0.8rem 1rem;
+  background-color: #f0f5f9; /* 页面背景色一致 */
+  border: 1px solid #c9d6df;
+  border-radius: 4px;
+  min-width: 150px;
+  color: #1e2022;
+}
+
+.custom-input-form input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: 1px solid #c9d6df;
+  border-radius: 4px;
+  outline: none;
+  color: #1e2022;
+}
+
+.custom-input-form input:focus {
+  border-color: #52616b;
+}
+
+/* 按钮组样式 */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-button {
+  background-color: #52616b; /* 中灰色按钮 */
+  color: #f0f5f9; /* 浅色文字 */
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #1e2022; /* 深色 hover 背景 */
+}
+
+/* 收藏相关样式 */
+.favorite-container {
+  margin-bottom: 1rem;
+}
+
+#phonetic-favorite-icon,
+#word-favorite-icon,
+#sentence-favorite-icon {
+  color: #f70a0a; /* 中灰色收藏图标 */
+  margin-right: 0.5rem;
+}
+
+/* 模态框样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+  font-size: 1.2rem;
+  color: #1e2022;
+}
+
+.modal-close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #52616b;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #1e2022;
+}
+
+.modal-body {
+  margin-bottom: 1.5rem;
+  color: #1e2022;
+}
+
+#recording-audio {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* 页脚样式 */
+footer {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: #52616b;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+footer a {
+  color: #52616b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #1e2022;
+  text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 1rem;
+  }
+
+  .tabs-nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .custom-input-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

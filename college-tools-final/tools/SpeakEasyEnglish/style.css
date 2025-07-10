@@ -1,0 +1,253 @@
+/* 基础样式重置（全局适用） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    color: #1e2022; /* 主文本色 */
+    line-height: 1.6;
+    background-color: #f0f5f9; /* 页面背景 */
+}
+
+/* 头部样式（所有页面共享） */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff; /* 头部背景 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e2022; /* 标志主色 */
+}
+
+.logo p {
+    color: #52616b; /* 标志次要色 */
+    font-size: 0.9rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-text {
+    color: #1e2022;
+    font-weight: 500;
+}
+
+.nav-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #52616b;
+    border-radius: 4px;
+    color: #52616b;
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: #1e2022;
+    color: #f0f5f9;
+    border-color: #1e2022;
+}
+
+/* 页脚样式（所有页面共享） */
+footer {
+    background-color: #1e2022;
+    color: #f0f5f9;
+    padding: 2rem 5%;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: #c9d6df;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #f0f5f9;
+    text-decoration: underline;
+}
+
+/* 工具类（全局适用） */
+.hidden {
+    display: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 首页（index.html）特定样式 */
+/* 英雄区域 */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 4rem 5%;
+    background-color: #fff;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1e2022;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #52616b;
+}
+
+.primary-btn {
+    padding: 0.8rem 2rem;
+    background: #1e2022;
+    color: #f0f5f9;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.primary-btn:hover {
+    background: #52616b;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 功能介绍区域（首页） */
+.features {
+    padding: 4rem 5%;
+    text-align: center;
+    background-color: #f0f5f9;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #1e2022;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #52616b;
+}
+
+/* 示例练习区域（首页） */
+.example {
+    padding: 4rem 5%;
+    background-color: white;
+    text-align: center;
+}
+
+.example h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #1e2022;
+}
+
+.exercise-demo {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f0f5f9;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.exercise-sentence {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #1e2022;
+}
+
+.mic-btn {
+    padding: 1rem 2rem;
+    background: #52616b;
+    color: #f0f5f9;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background 0.3s;
+}
+
+.mic-btn:hover {
+    background: #1e2022;
+}
+
+/* 响应式样式（首页及全局） */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}

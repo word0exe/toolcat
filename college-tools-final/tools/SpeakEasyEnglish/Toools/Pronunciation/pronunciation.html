@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发音练习 - SpeakEasy English</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>🗣️ SpeakEasy English</span>
+            <p>轻松提升英语口语能力</p>
+        </div>
+        <nav>
+            <a href="../../index.html" class="nav-btn">首页</a>
+            <a href="../Conversation/conversation.html" class="nav-btn">对话练习</a>
+            <a href="../Idioms/idioms.html" class="nav-btn">习语学习</a>
+            <a href="../Progress/progress.html" class="nav-btn">学习进度</a>
+            <a href="./pronunciation.html" class="nav-btn active">发音练习</a>
+        </nav>
+    </header>
+
+    <main class="tools-content">
+        <div class="page-header">
+            <h1>发音练习</h1>
+            <p>在这里进行英语发音练习，提升口语水平</p>
+        </div>
+
+        <div class="tabs-nav">
+            <button class="tab-button active" data-tab="tab-phonetic">音标练习</button>
+            <button class="tab-button" data-tab="tab-word">单词发音</button>
+            <button class="tab-button" data-tab="tab-sentence">句子发音</button>
+        </div>
+
+        <!-- 音标练习 (保持随机单词) -->
+        <div id="tab-phonetic" class="tab-panel active">
+            <h3>音标练习</h3>
+            <p class="intro">随机生成单词，练习音标发音</p>
+            <div class="random-container">
+                <button class="action-button" onclick="generateRandomPhoneticWord()">随机单词</button>
+                <div id="phonetic-word" class="current-word">请点击"随机单词"获取练习内容</div>
+            </div>
+            <div class="favorite-container">
+                <button class="action-button" onclick="toggleFavorite('phonetic', currentPhoneticWord)">
+                    <span id="phonetic-favorite-icon">♥</span> 加入收藏
+                </button>
+            </div>
+            <div class="button-group">
+                <button class="action-button" onclick="playSample(currentPhoneticWord)">播放标准发音</button>
+                <button class="action-button" onclick="startRecord(currentPhoneticWord)">录制我的发音</button>
+            </div>
+        </div>
+
+        <!-- 单词发音 (输入自定义单词) -->
+        <div id="tab-word" class="tab-panel">
+            <h3>单词发音</h3>
+            <p class="intro">输入你想练习的单词，获取发音并录制</p>
+            <form id="customWordForm" class="custom-input-form">
+                <input type="text" id="customWord" placeholder="输入单词（例如：hello）" required>
+                <button type="submit" class="action-button">确认单词</button>
+            </form>
+            <div id="word-display" class="current-word">请输入单词并确认</div>
+            <div class="favorite-container">
+                <button class="action-button" onclick="toggleFavorite('word', currentWord)">
+                    <span id="word-favorite-icon">♥</span> 加入收藏
+                </button>
+            </div>
+            <div class="button-group">
+                <button class="action-button" onclick="playSample(currentWord)">播放标准发音</button>
+                <button class="action-button" onclick="startRecord(currentWord)">录制我的发音</button>
+            </div>
+        </div>
+
+        <!-- 句子发音 (输入自定义句子) -->
+        <div id="tab-sentence" class="tab-panel">
+            <h3>句子发音</h3>
+            <p class="intro">输入你想练习的句子，获取发音并录制</p>
+            <form id="customSentenceForm" class="custom-input-form">
+                <input type="text" id="customSentence" placeholder="输入句子（例如：I love English）" required>
+                <button type="submit" class="action-button">确认句子</button>
+            </form>
+            <div id="sentence-display" class="current-sentence">请输入句子并确认</div>
+            <div class="favorite-container">
+                <button class="action-button" onclick="toggleFavorite('sentence', currentSentence)">
+                    <span id="sentence-favorite-icon">♥</span> 加入收藏
+                </button>
+            </div>
+            <div class="button-group">
+                <button class="action-button" onclick="playSample(currentSentence)">播放标准发音</button>
+                <button class="action-button" onclick="startRecord(currentSentence)">录制我的发音</button>
+            </div>
+        </div>
+
+        <!-- 收藏夹模态框 -->
+        <div class="modal-overlay" id="favorites-modal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3>我的收藏</h3>
+                    <button class="modal-close" onclick="closeFavoritesModal()">×</button>
+                </div>
+                <div class="modal-body" id="favorites-list">
+                    <!-- 动态加载收藏内容 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 录制模态框 -->
+        <div class="modal-overlay" id="practice-modal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3>发音练习</h3>
+                    <button class="modal-close" onclick="closeModal()">×</button>
+                </div>
+                <div class="modal-body">
+                    <p id="practice-target">正在练习的内容</p>
+                    <button class="action-button" onclick="startRecording()">开始录制</button>
+                    <button class="action-button" onclick="stopRecording()" style="display: none;">停止录制</button>
+                    <audio id="recording-audio" controls style="display: none;"></audio>
+                </div>
+                <div class="modal-footer">
+                    <button class="action-button" onclick="savePractice()">保存练习</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 SpeakEasy English - 让说英语变得更简单</p>
+        <p>Need any help ? <a href="../../../Footers/contact.html">Contact us</a></p>
+        <p>More <a href="../../../Footers/about.html">About us</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

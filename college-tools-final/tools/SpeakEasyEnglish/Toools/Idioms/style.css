@@ -1,0 +1,257 @@
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f5f9;
+  color: #1e2022;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 头部导航 */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.logo span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1e2022;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #52616b;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: #1e2022;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+  background-color: #c9d6df;
+}
+
+.nav-btn.active {
+  background-color: #52616b;
+  color: #f0f5f9;
+}
+
+/* 主要内容 */
+.tools-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  flex: 1;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #1e2022;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #52616b;
+  font-size: 1.1rem;
+}
+
+/* 习语容器 */
+.idioms-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #c9d6df;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 0.8rem 1.2rem;
+  background-color: #52616b;
+  color: #f0f5f9;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #1e2022;
+}
+
+/* 分类筛选 */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  background-color: #f0f5f9;
+  border: 1px solid #c9d6df;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn.active {
+  background-color: #52616b;
+  color: #f0f5f9;
+  border-color: #52616b;
+}
+
+.category-btn:hover:not(.active) {
+  background-color: #c9d6df;
+}
+
+/* 习语卡片 */
+.idiom-card {
+  background-color: #f0f5f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #c9d6df;
+}
+
+.idiom-card h2 {
+  color: #1e2022;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.idiom-info p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.idiom-info strong {
+  color: #1e2022;
+}
+
+/* 操作按钮 */
+.idiom-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.action-btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #f0f5f9;
+  color: #1e2022;
+  border: 1px solid #c9d6df;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-btn:hover {
+  background-color: #52616b;
+  color: #f0f5f9;
+  border-color: #52616b;
+}
+
+/* 页脚 */
+footer {
+  background-color: #1e2022;
+  color: #f0f5f9;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #c9d6df;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f0f5f9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .idiom-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-content {
+    padding: 0 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+}

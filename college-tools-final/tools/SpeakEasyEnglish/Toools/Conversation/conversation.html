@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英语对话练习</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 引入字体图标（可选，用于按钮图标） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <span>🗣️ SpeakEasy English</span>
+      <p>轻松提升英语口语能力</p>
+    </div>
+    <nav>
+      <a href="../../../index.html" class="nav-btn">首页</a>
+      <a href="./conversation.html" class="nav-btn active">对话练习</a>
+      <a href="../Idioms/idioms.html" class="nav-btn">习语学习</a>
+      <a href="../Progress/progress.html" class="nav-btn">学习进度</a>
+      <a href="../Pronunciation/pronunciation.html" class="nav-btn">发音练习</a>
+    </nav>
+  </header>
+
+  <main class="tools-content">
+    <div class="page-header">
+      <h1>英语对话练习</h1>
+      <p>与系统进行模拟对话，提升口语流畅度和发音准确性</p>
+    </div>
+
+    <div class="conversation-container">
+      <!-- 对话历史记录 -->
+      <div class="dialogue-history" id="dialogueHistory">
+        <div class="message system">
+          <p><strong>系统</strong>：欢迎来到对话练习！请朗读下方句子，然后点击“系统回应”继续</p>
+        </div>
+      </div>
+
+      <!-- 当前需要朗读的句子 -->
+      <div class="prompt-box" id="promptBox">
+        <p id="currentPrompt">A: Hello! How are you today?</p>
+      </div>
+
+      <!-- 操作按钮组 -->
+      <div class="button-group">
+        <button class="action-button" id="startBtn" onclick="startListening()">
+          <i class="fa-solid fa-microphone"></i> 开始说话
+        </button>
+        <button class="action-button" id="switchRoleBtn" onclick="switchRole()">
+          <i class="fa-solid fa-exchange"></i> 切换角色
+        </button>
+        <button class="action-button" id="systemReplyBtn" onclick="systemReply()">
+          <i class="fa-solid fa-volume-up"></i> 系统回应
+        </button>
+        <button class="action-button" id="newConversationBtn" onclick="newRandomConversation()">
+          <i class="fa-solid fa-random"></i> 新随机对话
+        </button>
+      </div>
+
+      <!-- 识别结果和评分 -->
+      <div class="result-box" id="resultBox">
+        <p>你说的：<span id="userSpeech">-</span></p>
+        <p>发音评分：<span id="pronunciationScore">--/100</span></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 SpeakEasy English - 让说英语变得更简单</p>
+    <p>需要帮助？<a href="../../../Footers/contact.html">联系我们</a></p>
+    <p>了解更多 <a href="../../../Footers/about.html">关于我们</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

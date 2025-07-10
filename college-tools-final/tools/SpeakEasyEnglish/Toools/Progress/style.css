@@ -1,0 +1,210 @@
+/* ==================== RÉINITIALISATION DE BASE ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f5f9;
+  color: #1e2022;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== BARRE DE NAVIGATION ==================== */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.logo span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1e2022;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #52616b;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: #1e2022;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+  background-color: #c9d6df;
+}
+
+.nav-btn.active {
+  background-color: #52616b;
+  color: #f0f5f9;
+}
+
+/* ==================== CONTENU PRINCIPAL ==================== */
+.tools-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  flex: 1;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #1e2022;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #52616b;
+  font-size: 1.1rem;
+}
+
+/* ==================== CONTENEUR DE PROGRESSION ==================== */
+.progress-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== CARTES DE PROGRESSION ==================== */
+.progress-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f0f5f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #c9d6df;
+  transition: all 0.3s ease;
+}
+
+.progress-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  color: #52616b;
+}
+
+.card-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: #1e2022;
+}
+
+.card-info p {
+  color: #52616b;
+  font-size: 1rem;
+}
+
+/* ==================== HISTORIQUE DE PROGRESSION ==================== */
+.progress-history {
+  background-color: #f0f5f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid #c9d6df;
+}
+
+.progress-history h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1e2022;
+}
+
+.history-item {
+  padding: 1rem;
+  border-bottom: 1px solid #c9d6df;
+  color: #52616b;
+}
+
+.history-item span {
+  margin-right: 1rem;
+}
+
+/* ==================== PIED DE PAGE ==================== */
+footer {
+  background-color: #1e2022;
+  color: #f0f5f9;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #c9d6df;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f0f5f9;
+}
+
+/* ==================== RESPONSIVITÉ ==================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .progress-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-content {
+    padding: 0 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+}

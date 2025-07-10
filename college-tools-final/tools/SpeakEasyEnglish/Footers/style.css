@@ -1,0 +1,49 @@
+/* 关于/联系页面特定样式 */
+.info-page {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 5%;
+}
+
+.info-title {
+    color: #1e2022;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #c9d6df;
+}
+
+.info-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    color: #52616b;
+    line-height: 1.8;
+}
+
+.info-content h3 {
+    color: #1e2022;
+    margin: 1.5rem 0 1rem;
+}
+
+.contact-form .form-group {
+    margin: 1rem 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #c9d6df;
+    border-radius: 4px;
+    background-color: #f0f5f9;
+}
+
+.contact-form button {
+    padding: 0.8rem 1.5rem;
+    background: #1e2022;
+    color: #f0f5f9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

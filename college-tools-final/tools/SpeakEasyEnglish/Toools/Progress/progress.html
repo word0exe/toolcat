@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>学习进度 - SpeakEasy English</title>
+  <!-- Lien vers le fichier CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Icônes (optionnel) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <header>
+    <div class="logo">
+      <span>🗣️ SpeakEasy English</span>
+      <p>轻松提升英语口语能力</p>
+    </div>
+    <nav>
+      <a href="../index.html" class="nav-btn">首页</a>
+      <a href="../conversation/conversation.html" class="nav-btn">对话练习</a>
+      <a href="./progress.html" class="nav-btn active">学习进度</a>
+      <a href="../Pronunciation/pronunciation.html" class="nav-btn">发音练习</a>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="tools-content">
+    <div class="page-header">
+      <h1>学习进度</h1>
+      <p>跟踪您的练习数据，了解进步情况</p>
+    </div>
+
+    <!-- Section : Suivi de progression -->
+    <div class="progress-container">
+      <!-- Carte 1 : Nombre de conversations -->
+      <div class="progress-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <div class="card-info">
+          <h3>已完成对话</h3>
+          <p id="conversation-count">0</p>
+          <p>次练习</p>
+        </div>
+      </div>
+
+      <!-- Carte 2 : Score moyen de prononciation -->
+      <div class="progress-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="card-info">
+          <h3>平均发音评分</h3>
+          <p id="average-score">--/100</p>
+        </div>
+      </div>
+
+      <!-- Carte 3 : Heures d'entraînement -->
+      <div class="progress-card">
+        <div class="card-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="card-info">
+          <h3>累计练习时长</h3>
+          <p id="total-time">0 分钟</p>
+        </div>
+      </div>
+
+      <!-- Historique détaillé -->
+      <div class="progress-history">
+        <h2>练习历史</h2>
+        <div id="history-list">
+          <!-- Exemple : <div class="history-item">2023-10-01 14:30 | 评分: 85/100 | 对话主题: 日常问候</div> -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>© 2025 SpeakEasy English - 让说英语变得更简单</p>
+    <p>需要帮助？<a href="../Footers/contact.html">联系我们</a></p>
+    <p>了解更多 <a href="../Footers/about.html">关于我们</a></p>
+  </footer>
+
+  <!-- Lien vers le fichier JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - SpeakEasy English</title>
+    <link rel="stylesheet" href="style.css"> <!-- Même CSS global -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>🗣️ SpeakEasy English</span>
+            <p>轻松提升英语口语能力</p>
+        </div>
+        <nav>
+            <a href="../Login/login.html" class="nav-btn">登录</a>
+            <a href="../Register/register.html" class="nav-btn active">注册</a>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h2>用户注册</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">姓名</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">邮箱</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">密码（至少8位）</label>
+                    <input type="password" id="register-password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">确认密码</label>
+                    <input type="password" id="register-confirm" minlength="8" required>
+                </div>
+                <button type="submit">注册</button>
+            </form>
+            <p class="switch-form">已有账号？<a href="../Login/login.html">立即登录</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 SpeakEasy English - 让说英语变得更简单</p>
+        <p>Need any help ? <a href="../Footers/contact.html">Contact Us</a></p>
+        <p>More <a href="../Footers/about.html">About us</a></p>
+    </footer>
+
+    <script src="register.js"></script> <!-- Script spécifique à l'inscription -->
+</body>
+</html>

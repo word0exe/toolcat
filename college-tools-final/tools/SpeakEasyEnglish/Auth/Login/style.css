@@ -1,0 +1,190 @@
+/* 基础样式重置，统一盒模型与字体 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 页面整体基础样式 */
+body {
+  color: #1e2022; /* 主文本颜色，深灰色 */
+  line-height: 1.6;
+  background-color: #f0f5f9; /* 页面背景色，浅灰色 */
+}
+
+/* 头部导航区域样式 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: #fff; /* 头部背景为白色，突出内容 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 微弱阴影增加层次感 */
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e2022; /* 标志主色，深灰色 */
+}
+
+.logo p {
+  color: #52616b; /* 标志辅助色，中灰色 */
+  font-size: 0.9rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #52616b; /* 按钮边框色，中灰色 */
+  border-radius: 4px;
+  color: #52616b; /* 按钮文字色，中灰色 */
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* 过渡动画让交互更流畅 */
+  font-size: 1rem;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #1e2022; /*  hover/激活时背景色，深灰色 */
+  color: #f0f5f9; /*  hover/激活时文字色，浅灰色 */
+  border-color: #1e2022; /*  hover/激活时边框色，深灰色 */
+}
+
+/* 登录页面主体容器样式 */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem 5%;
+  background-color: #f0f5f9; /* 与页面背景一致 */
+}
+
+/* 登录卡片样式 */
+.auth-card {
+  background: #fff; /* 卡片背景为白色 */
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* 阴影增强立体效果 */
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e2022; /* 标题颜色，深灰色 */
+}
+
+/* 表单组样式 */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #52616b; /* 标签颜色，中灰色 */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #c9d6df; /* 输入框边框色，浅灰色 */
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f0f5f9; /* 输入框背景色，浅灰色 */
+  color: #1e2022; /* 输入框文字色，深灰色 */
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #52616b; /* 聚焦时边框色，中灰色 */
+}
+
+/* 登录按钮样式 */
+.auth-card button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #1e2022; /* 按钮背景色，深灰色 */
+  color: #f0f5f9; /* 按钮文字色，浅灰色 */
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease; /* 过渡动画 */
+}
+
+.auth-card button:hover {
+  background: #52616b; /*  hover时背景色，中灰色 */
+}
+
+/* 切换注册链接样式 */
+.switch-form {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #52616b; /* 文字颜色，中灰色 */
+}
+
+.switch-form a {
+  color: #1e2022; /* 链接颜色，深灰色 */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.switch-form a:hover {
+  text-decoration: underline; /*  hover时添加下划线 */
+}
+
+/* 页脚样式 */
+footer {
+  background-color: #1e2022; /* 页脚背景色，深灰色 */
+  color: #f0f5f9; /* 页脚文字色，浅灰色 */
+  padding: 2rem 5%;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+footer a {
+  color: #c9d6df; /* 页脚链接颜色，浅灰色 */
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #f0f5f9; /*  hover时链接颜色，浅灰色 */
+  text-decoration: underline;
+}
+
+/* 响应式设计，适配小屏幕设备 */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  nav {
+    margin-top: 0.5rem;
+  }
+
+  .auth-container {
+    min-height: auto; /* 小屏幕下自动调整高度 */
+  }
+
+  .auth-card {
+    max-width: 100%; /* 卡片占满屏幕宽度 */
+  }
+}

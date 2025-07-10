@@ -1,0 +1,81 @@
+/* 认证页面（login.html / register.html）特定样式 */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 2rem 5%;
+}
+
+.auth-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    border-top: 4px solid #52616b;
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e2022;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #52616b;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #c9d6df;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f0f5f9;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #52616b;
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #1e2022;
+    color: #f0f5f9;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.auth-card button:hover {
+    background: #52616b;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #52616b;
+}
+
+.switch-form a {
+    color: #1e2022;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}

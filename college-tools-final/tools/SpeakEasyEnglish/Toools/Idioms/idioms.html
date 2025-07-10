@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英语习语学习 - SpeakEasy English</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <header>
+    <div class="logo">
+      <span>🗣️ SpeakEasy English</span>
+      <p>轻松提升英语口语能力</p>
+    </div>
+    <nav>
+      <a href="../index.html" class="nav-btn">首页</a>
+      <a href="../conversation/conversation.html" class="nav-btn">对话练习</a>
+      <a href="./idioms.html" class="nav-btn active">习语学习</a>
+      <a href="../progress/progress.html" class="nav-btn">学习进度</a>
+      <a href="../pronunciation/pronunciation.html" class="nav-btn">发音练习</a>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="tools-content">
+    <div class="page-header">
+      <h1>英语习语学习</h1>
+      <p>掌握常用习语，让口语更自然流利</p>
+    </div>
+
+    <div class="idioms-container">
+      <!-- Barre de recherche -->
+      <div class="search-bar">
+        <input type="text" id="idiom-search" placeholder="搜索习语...">
+        <button onclick="searchIdiom()"><i class="fa-solid fa-search"></i></button>
+      </div>
+
+      <!-- Filtre par catégorie -->
+      <div class="category-filter">
+        <button class="category-btn active" data-category="all">全部</button>
+        <button class="category-btn" data-category="everyday">日常用语</button>
+        <button class="category-btn" data-category="emotions">情感表达</button>
+        <button class="category-btn" data-category="success">成功与失败</button>
+      </div>
+
+      <!-- Affichage de l'idiome actuel -->
+      <div class="current-idiom">
+        <div class="idiom-card">
+          <h2 id="idiom-phrase">"Break a leg"</h2>
+          <div class="idiom-info">
+            <p><strong>中文含义：</strong> <span id="idiom-meaning">祝你好运（尤其用于表演前）</span></p>
+            <p><strong>用法示例：</strong> <span id="idiom-example">"You have a big presentation today. Break a leg!"</span></p>
+            <p><strong>中文翻译：</strong> <span id="example-translation">"你今天有个重要的演讲，祝你好运！"</span></p>
+            <p><strong>类别：</strong> <span id="idiom-category">日常用语</span></p>
+          </div>
+          <div class="idiom-actions">
+            <button onclick="playPronunciation()" class="action-btn">
+              <i class="fa-solid fa-volume-up"></i> 发音
+            </button>
+            <button onclick="showRandomIdiom()" class="action-btn">
+              <i class="fa-solid fa-random"></i> 随机习语
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>© 2025 SpeakEasy English - 让说英语变得更简单</p>
+    <p>需要帮助？<a href="../Footers/contact.html">联系我们</a></p>
+    <p>了解更多 <a href="../Footers/about.html">关于我们</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

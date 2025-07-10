@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakEasy English - 轻松提升英语口语</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%233498db' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>🗣️ SpeakEasy English</span>
+            <p>轻松提升英语口语能力</p>
+        </div>
+        <nav>
+            <span id="user-status" class="nav-text">未登录</span>
+            <a href="Auth/Login/login.html" id="login-link" class="nav-btn">登录</a>
+            <a href="Auth/Register/register.html" id="register-link" class="nav-btn">注册</a>
+            <button id="logout-btn" class="nav-btn hidden">退出登录</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>突破英语口语障碍</h1>
+                <p>专为中国学习者设计，聚焦口语薄弱点：发音、流利度和自信心</p>
+                <button id="start-btn" class="primary-btn">免费开始练习</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="英语口语练习">
+            </div>
+        </section>
+
+        <!-- 功能介绍 -->
+        <section class="features">
+            <h2>为什么选择 SpeakEasy English？</h2>
+            <div class="features-grid">
+                <a href="Toools/Pronunciation/pronunciation.html" class="feature-link">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎤</div>
+                        <h3>智能发音纠正</h3>
+                        <p>录制您的发音，系统会与标准发音对比并给出具体建议（重音、语调等）</p>
+                        <span class="feature-link-text">了解更多 →</span>
+                    </div>
+                </a>
+                <a href="Toools/Conversation/conversation.html" class="feature-link">
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>情景对话练习</h3>
+                        <p>模拟真实场景（购物、面试、旅行），与AI对话机器人实时互动</p>
+                        <span class="feature-link-text">了解更多 →</span>
+                    </div>
+                </a>
+                <a href="Toools/Progress/progress.html" class="feature-link">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>进度追踪</h3>
+                        <p>记录您的进步，识别薄弱环节（如特定音标、语法错误）</p>
+                        <span class="feature-link-text">了解更多 →</span>
+                    </div>
+                </a>
+                <a href="Toools/Idioms/idioms.html" class="feature-link">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>地道表达库</h3>
+                        <p>学习母语者常用的俚语、习惯用语，避免"中式英语"</p>
+                        <span class="feature-link-text">了解更多 →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 示例练习 -->
+        <section class="example">
+            <h2>体验一次口语练习</h2>
+            <div class="exercise-demo">
+                <p class="exercise-sentence">点击麦克风，朗读这句话：<br><strong>"I would like to book a table for two people this Friday evening."</strong></p>
+                <button id="record-btn" class="mic-btn">🎤 开始录音</button>
+                <div id="recording-status" class="hidden">正在录音... 请说话</div>
+                <div id="feedback" class="hidden">
+                    <p>发音评分：<span id="score">85/100</span></p>
+                    <p>建议：<span id="advice">注意"evening"的重音在第一个音节 /ˈiːvnɪŋ/</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 SpeakEasy English - 让说英语变得更简单</p>
+        <div class="footer-links">
+            <a href="Footers/about.html">关于我们</a>
+            <a href="Footers/contact.html">联系我们</a>
+            <a href="Footers/terms.html">使用条款</a>
+            <a href="Footers/privacy.html">隐私政策</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
