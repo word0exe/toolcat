@@ -1,49 +1,207 @@
-/* 关于/联系页面特定样式 */
-.info-page {
-    max-width: 800px;
-    margin: 3rem auto;
-    padding: 0 5%;
+/* ====== BASE STYLES ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.info-title {
-    color: #1e2022;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #c9d6df;
+body {
+  background-color: #f0f5f9;
+  color: #1e2022;
+  line-height: 1.8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.info-content {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    color: #52616b;
-    line-height: 1.8;
+/* ====== HEADER & NAVIGATION ====== */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
 }
 
-.info-content h3 {
-    color: #1e2022;
-    margin: 1.5rem 0 1rem;
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.contact-form .form-group {
-    margin: 1rem 0;
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #c9d6df;
-    border-radius: 4px;
-    background-color: #f0f5f9;
+.logo span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1e2022;
 }
 
-.contact-form button {
-    padding: 0.8rem 1.5rem;
-    background: #1e2022;
-    color: #f0f5f9;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.logo p {
+  font-size: 0.9rem;
+  color: #52616b;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: #1e2022;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+  background-color: #c9d6df;
+}
+
+.nav-btn.active {
+  background-color: #52616b;
+  color: #f0f5f9;
+}
+
+/* ====== MAIN CONTENT ====== */
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  flex: 1;
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #1e2022;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #52616b;
+}
+
+.content-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.content-box h2 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  color: #52616b;
+}
+
+.content-box p {
+  margin-bottom: 1rem;
+}
+
+.content-box ul {
+  margin: 1rem 0 1.5rem 2rem;
+}
+
+.content-box li {
+  margin-bottom: 0.5rem;
+}
+
+/* ====== CONTACT FORM ====== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid #c9d6df;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #52616b;
+  color: #f0f5f9;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+.submit-btn:hover {
+  background-color: #1e2022;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: #1e2022;
+  color: #f0f5f9;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #c9d6df;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f0f5f9;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .content-box {
+    padding: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 1.7rem;
+  }
 }
