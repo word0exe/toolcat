@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f0f9f4;
+    background-color: #f0f5f9;
     color: #2d3436;
     min-height: 100vh;
     padding: 20px;
@@ -22,11 +22,11 @@ header {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px 0;
-    border-bottom: 2px solid #2ecc71;
+    border-bottom: 2px solid #c9d6df;
 }
 
 header h1 {
-    color: #27ae60;
+    color: #1e2022;
     font-size: 2.2rem;
     margin-bottom: 8px;
 }
@@ -88,7 +88,7 @@ input:focus, select:focus {
 }
 
 button {
-    background-color: #27ae60;
+    background-color: #1e2022;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -101,7 +101,7 @@ button {
 }
 
 button:hover {
-    background-color: #219653;
+    background-color: #52616b;
 }
 
 /* Section tracker */
@@ -198,17 +198,17 @@ button:hover {
 }
 
 .notification-card p {
-    color: #856404;
+    color: #1e2022;
     margin-bottom: 15px;
 }
 
 .notification-card button {
-    background-color: #ffc107;
+    background-color: #f0f5f9;
     color: #212529;
 }
 
 .notification-card button:hover {
-    background-color: #e0a800;
+    background-color: #f0f5f9;
 }
 
 /* Classes utilitaires */
